@@ -1,0 +1,24 @@
+{
+	"workbench.colorTheme": "Andromeda Colorizer",
+	"terminal.integrated.defaultProfile.linux": "fish",
+	"terminal.integrated.profiles.linux": {
+		"fish": {
+			"path": "host-spawn",
+			"args": [
+				"fish"
+			]
+		}
+	},
+	"editor.renderWhitespace": "all",
+	"editor.insertSpaces": false,
+	"workbench.iconTheme": "vscode-icons",
+	"git.enableSmartCommit": true,
+	"git.confirmSync": false,
+	"git.autofetch": true,
+	"explorer.confirmDelete": false,
+	"explorer.confirmDragAndDrop": false,
+	"window.titleBarStyle": "custom",
+	"editor.formatOnPaste": false,
+	"editor.fontLigatures": true,
+	"editor.tabSize": 2
+}
