@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 12:07:47 by nshahid           #+#    #+#             */
-/*   Updated: 2023/12/06 14:45:53 by jbiernac         ###   ########.fr       */
+/*   Created: 2023/12/11 12:48:54 by jbiernac          #+#    #+#             */
+/*   Updated: 2023/12/11 12:48:56 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@ int	ft_is_prime(int nb)
 {
 	int	i;
 
+	if (nb <= 1)
+	{
+		return (0);
+	}
 	i = 2;
 	while (i <= nb / i)
 	{
