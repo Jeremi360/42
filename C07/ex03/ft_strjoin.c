@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:38:12 by jbiernac          #+#    #+#             */
-/*   Updated: 2023/12/13 19:04:57 by jbiernac         ###   ########.fr       */
+/*   Updated: 2023/12/14 12:22:58 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*str_cpy(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(int size, char *str_arr[], char *sep)
 {
 	int		i;
 	int		total_size;
@@ -65,7 +65,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	total_size = 0;
 	while (++i < size)
 	{
-		total_size += str_len(strs[i]);
+		total_size += str_len(str_arr[i]);
 		if (i < size - 1)
 			total_size += str_len(sep);
 	}
@@ -74,7 +74,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	str[0] = '\0';
 	while (++i < size)
 	{
-		str = str_cat(str, strs[i]);
+		str = str_cat(str, str_arr[i]);
 		if (i < size - 1)
 			str = str_cat(str, sep);
 	}
