@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:34:12 by jbiernac          #+#    #+#             */
-/*   Updated: 2023/12/14 14:03:27 by jbiernac         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:26:28 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	main(int argc, char *argv[])
 	int	i;
 	int	check;
 
-	check = 0;
 	while (check == 0)
 	{
 		check = 1;

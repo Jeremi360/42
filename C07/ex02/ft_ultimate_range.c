@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 17:38:05 by jbiernac          #+#    #+#             */
-/*   Updated: 2023/12/13 17:46:58 by jbiernac         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:11:02 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,8 @@ int	ft_ultimate_range(int **range, int min, int max)
 /*
 int main()
 {
-	int *r = ft_range(0, 100);
-	int len = sizeof(r) * sizeof(int) * 3;
-	int i = 0;
-	while (i < len)
-	{
-		printf("%d ", r[i]);
-		i++;
-	}
-	
+	int **range = (int *)malloc(sizeof(int) * 100);
+	int r_len = ft_ultimate_range(range, 0, 100);
+	printf("%d\n", r_len);
 }
 */
