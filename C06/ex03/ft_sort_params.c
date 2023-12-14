@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:34:12 by jbiernac          #+#    #+#             */
-/*   Updated: 2023/12/12 17:04:44 by jbiernac         ###   ########.fr       */
+/*   Updated: 2023/12/14 14:03:27 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,22 @@ int	main(int argc, char *argv[])
 	{
 		check = 1;
 		i = 1;
-		while (i < argc - 1)
+		while (++i < argc)
 		{
-			if (ft_strcmp(argv[i], argv[i + 1]) > 0)
+			if (ft_strcmp(argv[i - 1], argv[i]) > 0)
 			{
-				ft_swapstr(argv, i, i++);
+				ft_swapstr(argv, i - 1, i);
 				check = 0;
 			}
 		}
+		if (check == 1)
+			break ;
 	}
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (++i < argc)
 	{
 		ft_putstr(argv[i]);
 		ft_putstr("\n");
-		i++;
 	}
 	return (0);
 }

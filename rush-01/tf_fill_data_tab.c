@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   tf_fill_data_tab.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 15:34:05 by jbiernac          #+#    #+#             */
-/*   Updated: 2023/12/14 14:03:46 by jbiernac         ###   ########.fr       */
+/*   Created: 2023/12/03 14:19:00 by jbiernac          #+#    #+#             */
+/*   Updated: 2023/12/03 14:19:03 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len] != '\0')
-	{
-		len++;
-	}
-	return (len);
-}
-
-void	ft_putstr(char *str)
-{
-	int	len;
-
-	len = ft_strlen(str);
-	write(1, str, len);
-}
-
-int	main(int argc, char *argv[])
+void	ft_fill_data_tab(int input_tab[4][4], char input[])
 {
 	int	i;
+	int	j;
+	int	k;
 
-	i = argc - 1;
-	while (i > 0)
+	i = 0;
+	j = 0;
+	k = 0;
+	while (j < 4)
 	{
-		ft_putstr(argv[i]);
-		ft_putstr("\n");
-		i--;
+		i = 0;
+		while (i < 4)
+		{
+			input_tab[j][i] = input[k] - 48;
+			k += 2;
+			i++;
+		}
+		j++;
 	}
-	return (0);
 }

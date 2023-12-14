@@ -1,47 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_params.c                                    :+:      :+:    :+:   */
+/*   ft_print_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 15:34:05 by jbiernac          #+#    #+#             */
-/*   Updated: 2023/12/14 14:03:46 by jbiernac         ###   ########.fr       */
+/*   Created: 2023/12/03 14:18:19 by jbiernac          #+#    #+#             */
+/*   Updated: 2023/12/03 14:18:22 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	ft_putchar(char c);
 
-int	ft_strlen(char *str)
+void	ft_print_coord(int x, int y, int tab[4][4]);
+
+void	ft_print_tab(int tab[4][4])
 {
-	int	len;
+	int	x;
+	int	y;
 
-	len = 0;
-	while (str[len] != '\0')
+	x = 0;
+	y = 0;
+	while (y < 4)
 	{
-		len++;
+		x = 0;
+		while (x < 4)
+		{
+			ft_print_coord(x, y, tab);
+			if (x != 3)
+				ft_putchar(' ');
+			else
+				ft_putchar('\n');
+			x++;
+		}
+		y++;
 	}
-	return (len);
-}
-
-void	ft_putstr(char *str)
-{
-	int	len;
-
-	len = ft_strlen(str);
-	write(1, str, len);
-}
-
-int	main(int argc, char *argv[])
-{
-	int	i;
-
-	i = argc - 1;
-	while (i > 0)
-	{
-		ft_putstr(argv[i]);
-		ft_putstr("\n");
-		i--;
-	}
-	return (0);
 }
