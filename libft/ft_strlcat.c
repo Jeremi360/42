@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 11:54:57 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 14:56:40 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/02/27 14:44:36 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/02/27 15:01:39 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-/* FUNCTIONS */
-int	ft_strlcat(char *dst, const char *src, int size);
-char	*ft_strchr(const char *str, int c);
-int		ft_strlcat(char *dst, const char *src, int size);
-int		ft_strlen(char const *str);
-int		ft_tolower(int c);
-int		ft_toupper(int c);
-int		ft_isprint(int c);
-int		ft_isascii(int c);
-int		ft_isalnum(int c);
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
+int	ft_strlcat(char *dst, const char *src, int size)
+{
+	int	dst_len;
+	int	src_len;
 
-#endif
+	if (!size)
+		return (ft_strlen(src));
+	src_len = ft_strlen(src);
+	dst_len = ft_strlen(dst);
+	if (dst_len >= size)
+		return (size + src_len);
+	dst = &dst[dst_len];
+	ft_strlcpy(dst, src, size - dst_len);
+	return (dst_len + src_len);
+}

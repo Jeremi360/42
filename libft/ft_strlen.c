@@ -6,11 +6,11 @@
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:23:05 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 13:23:09 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/02/27 14:55:42 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strlen(char const *str)
 {
 	int	len;
 

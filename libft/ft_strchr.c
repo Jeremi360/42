@@ -1,16 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   strchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 13:15:22 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 13:29:26 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/02/27 14:46:32 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/02/27 14:51:12 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+char	*ft_strchr(const char *str, int c)
 {
-	return (c >= 32 && c <= 126);
+	int	i;
+
+	if (!str)
+		return ('0');
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return ((char *)(str + i));
+		i++;
+	}
+	if (str[i] == (char)c)
+		return ((char *)(str + i));
+	return ('0');
 }
