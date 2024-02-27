@@ -1,14 +1,14 @@
 #include "libft.h"
 #include <stdio.h>
 
-int main()
+int	main(void)
 {
 	char c;
-	c='5';
+	c = '5';
 	printf("Result when numeric character is passed: %d", ft_isdigit(c));
 
-	c='+';
+	c = '+';
 	printf("\nResult when non-numeric character is passed: %d", ft_isdigit(c));
 
-	return 0;
+	return (0);
 }

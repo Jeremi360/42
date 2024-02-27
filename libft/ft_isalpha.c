@@ -6,21 +6,21 @@
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:19:15 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 11:36:44 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/02/27 12:54:05 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-		if (c >= 'a' && c <= 'z')
+	if (c >= 'a' && c <= 'z')
 	{
-		return 1;
+		return (1);
 	}
 
 	if (c >= 'A' && c <= 'Z')
 	{
-		return 2;
+		return (2);
 	}
 
-	return 0;
+	return (0);
 }

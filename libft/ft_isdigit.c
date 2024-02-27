@@ -6,15 +6,15 @@
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:28:28 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 11:36:48 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/02/27 12:54:36 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-		if (c >= '0' && c <= '9')
+	if (c >= '0' && c <= '9')
 	{
-		return 1;
+		return (1);
 	}
-	return 0;
+	return (0);
 }

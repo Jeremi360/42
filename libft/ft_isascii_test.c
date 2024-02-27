@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*																			*/
 /*														:::		::::::::   */
-/*   ft_ft_isalnum_test.c									:+:		:+:	:+:   */
+/*   ft_isascii_test.c									:+:		:+:	:+:   */
 /*													+:+ +:+			+:+		*/
 /*   By: jeremi360 <jeremi360@student.42.fr>		+#+  +:+		+#+		*/
 /*												+#+#+#+#+#+   +#+			*/
@@ -19,20 +19,20 @@ int	main(void)
 	int result;
 
 	c = '5';
-	result = ft_isalnum(c);
-	printf("When %c is passed, return (value is %d\n", c, result);
+	result = ft_isascii(c);
+	printf("When %c is passed, return (value is %d)\n", c, result);
 
 	c = 'Q';
-	result = ft_isalnum(c);
+	result = ft_isascii(c);
 	printf("When %c is passed, return (value is %d)\n", c, result);
 
 	c = 'l';
-	result = ft_isalnum(c);
-	printf("When %c is passed, return (value is %d\n", c, result);
+	result = ft_isascii(c);
+	printf("When %c is passed, return (value is %d)\n", c, result);
 
 	c = '+';
-	result = ft_isalnum(c);
-	printf("When %c is passed, return (value is %d\n", c, result);
+	result = ft_isascii(c);
+	printf("When %c is passed, return (value is %d)\n", c, result);
 
 	return (0);
 }

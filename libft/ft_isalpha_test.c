@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include "libft.h"
+#include <stdio.h>
 
-int main()
+int	main(void)
 {
 	char c;
 	c = 'Q';
@@ -10,8 +10,9 @@ int main()
 	c = 'q';
 	printf("\nResult when lowercase alphabet is passed: %d", ft_isalpha(c));
 
-	c='+';
-	printf("\nResult when non-alphabetic character is passed: %d", ft_isalpha(c));
+	c = '+';
+	printf("\nResult when non-alphabetic character is passed: %d",
+		ft_isalpha(c));
 
-	return 0;
+	return (0);
 }
