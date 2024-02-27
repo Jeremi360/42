@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 11:28:28 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 11:36:48 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/02/27 11:54:57 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/02/27 11:56:45 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
-{
-		if (c >= '0' && c <= '9')
-	{
-		return 1;
-	}
-	return 0;
-}
+#ifndef LIBFT_H
+#define LIBFT_H
+#endif
+
+/* FUNCTIONS */
+int ft_isalnum(int c);
+int ft_isalpha(int c);
+int ft_isdigit(int c);
+
