@@ -6,11 +6,13 @@
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:28:52 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 14:44:06 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/02/29 14:38:48 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlcat(char *dst, const char *src, int size)
+#include "libft.h"
+
+int	ft_strlcpy(char *dst, const char *src, int size)
 {
 	int	x;
 	int	y;

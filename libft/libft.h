@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:54:57 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 14:56:40 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/02/29 14:36:51 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define LIBFT_H
 
 /* FUNCTIONS */
-int	ft_strlcat(char *dst, const char *src, int size);
+
 char	*ft_strchr(const char *str, int c);
+int		ft_strlcpy(char *dst, const char *src, int size);
 int		ft_strlcat(char *dst, const char *src, int size);
 int		ft_strlen(char const *str);
 int		ft_tolower(int c);

@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:44:36 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/27 15:01:39 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/02/29 14:50:57 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,28 @@
 
 int	ft_strlcat(char *dst, const char *src, int size)
 {
-	int	dst_len;
-	int	src_len;
+	int	x;
+	int	y;
+	int	dest_length;
+	int	src_length;
 
-	if (!size)
-		return (ft_strlen(src));
-	src_len = ft_strlen(src);
-	dst_len = ft_strlen(dst);
-	if (dst_len >= size)
-		return (size + src_len);
-	dst = &dst[dst_len];
-	ft_strlcpy(dst, src, size - dst_len);
-	return (dst_len + src_len);
+	src_length = ft_strlen(src);
+	dest_length = ft_strlen(dst);
+	y = dest_length;
+	x = 0;
+	if (dest_length < size - 1 && size > 0)
+	{
+		while (src[x] && dest_length + x < size - 1)
+		{
+			dst[y++] = src[x];
+			y++;
+			x++;
+		}
+		dst[y] = 0;
+	}
+	if (dest_length >= size)
+	{
+		dest_length = size;
+	}
+	return (dest_length + src_length);
 }
