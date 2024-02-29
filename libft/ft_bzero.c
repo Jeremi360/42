@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
-	+#+        */
+/*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 15:13:23 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/29 15:15:56 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/02/29 16:16:12 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/02/29 18:58:45 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int ch)
+void	ft_bzero(void *s, int n)
 {
-	int		i;
-	char	*ptr;
+	unsigned char	*str;
 
-	i = 0;
-	ptr = '\0';
-	while (str[i])
-	{
-		if (str[i] == ch)
-			ptr = (char *)&str[i];
-		i++;
-	}
-	if (str[i] == ch)
-		ptr = (char *)&str[i];
-	return (ptr);
+	str = (unsigned char *)s;
+	while (n--)
+		*str++ = '\0';
 }

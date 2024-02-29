@@ -15,6 +15,10 @@
 # define LIBFT_H
 
 /* FUNCTIONS */
+void	*ft_memcpy(void *dst, const void *src, int n);
+void	*ft_memset(void *b, int c, int len);
+void	ft_bzero(void *s, int n);
+int		ft_atoi(const char *str);
 char	*ft_strnstr(const char *haystack, const char *needle, int len);
 int		ft_strncmp(const char *s1, const char *s2, int n);
 char	*ft_strrchr(const char *s, int c);

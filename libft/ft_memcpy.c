@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
-	+#+        */
+/*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 15:13:23 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/29 15:15:56 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/02/29 18:57:59 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/02/29 18:58:35 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int ch)
+void	*ft_memcpy(void *dst, const void *src, int n)
 {
-	int		i;
-	char	*ptr;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	i = 0;
-	ptr = '\0';
-	while (str[i])
-	{
-		if (str[i] == ch)
-			ptr = (char *)&str[i];
-		i++;
-	}
-	if (str[i] == ch)
-		ptr = (char *)&str[i];
-	return (ptr);
+	str1 = (unsigned char *)dst;
+	str2 = (unsigned char *)src;
+	while (n--)
+		*str1++ = *str2++;
+	return (dst);
 }
