@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:44:36 by jeremi360         #+#    #+#             */
 /*   Updated: 2024/02/29 14:50:57 by jeremi360        ###   ########.fr       */

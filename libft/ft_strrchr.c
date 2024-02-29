@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeremi360 <jeremi360@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:13:23 by jeremi360         #+#    #+#             */
 /*   Updated: 2024/02/29 15:15:56 by jeremi360        ###   ########.fr       */
