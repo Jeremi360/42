@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+
 	+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:54:57 by jeremi360         #+#    #+#             */
@@ -15,6 +15,8 @@
 # define LIBFT_H
 
 /* FUNCTIONS */
+char	*ft_strnstr(const char *haystack, const char *needle, int len);
+int		ft_strncmp(const char *s1, const char *s2, int n);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strchr(const char *str, int c);
 int		ft_strlcpy(char *dst, const char *src, int size);
