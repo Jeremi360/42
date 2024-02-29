@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 /* FUNCTIONS */
+char	*ft_strrchr(const char *s, int c);
 
 char	*ft_strchr(const char *str, int c);
 int		ft_strlcpy(char *dst, const char *src, int size);
