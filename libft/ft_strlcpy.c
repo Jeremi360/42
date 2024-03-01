@@ -3,7 +3,8 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
+	+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 14:28:52 by jeremi360         #+#    #+#             */
 /*   Updated: 2024/02/29 14:38:48 by jeremi360        ###   ########.fr       */
@@ -12,12 +13,12 @@
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dst, const char *src, int size)
+int	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int	x;
-	int	y;
-	int	dest_length;
-	int	src_length;
+	size_t	x;
+	size_t	y;
+	size_t	dest_length;
+	size_t	src_length;
 
 	src_length = ft_strlen(src);
 	dest_length = ft_strlen(dst);
