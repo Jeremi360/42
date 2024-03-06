@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:28:25 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/01 14:28:34 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/06 13:58:52 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s1)
 	size_t	len;
 
 	len = ft_strlen(s1);
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	str = ft_calloc(len, sizeof(char));
 	if (!str)
 		return (NULL);
 	ft_memcpy(str, s1, len);
