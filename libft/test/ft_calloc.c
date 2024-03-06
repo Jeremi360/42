@@ -11,7 +11,7 @@ int	main(void)
 	ptr = (char *)ft_calloc(5, sizeof(char));
 	while (i < 5)
 	{
-		printf("%c", ptr[i]);
+		printf("%c;%d", ptr[i], i);
 		i++;
 	}
 	printf("\n");
