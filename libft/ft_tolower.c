@@ -3,7 +3,8 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
+	+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:40:30 by jeremi360         #+#    #+#             */
 /*   Updated: 2024/02/27 13:41:25 by jeremi360        ###   ########.fr       */

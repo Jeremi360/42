@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:52:27 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/06 14:29:18 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/06 14:34:33 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,14 @@ char	**ft_split(char const *str, char c)
 	size_t	x;
 	size_t	y;
 	size_t	i;
-	size_t	words;
-	size_t	word_length;
 
 	x = 0;
 	y = 0;
 	i = 0;
-	words = count_words(str, c);
-	splited = ft_calloc(words, sizeof(char *));
-	while (y < words)
+	splited = ft_calloc(count_words(str, c), sizeof(char *));
+	while (y < count_words(str, c))
 	{
-		word_length = get_word_length(str, c, x) + 1;
-		splited[y] = ft_calloc(word_length, sizeof(char));
+		splited[y] = ft_calloc(get_word_length(str, c, x) + 1, sizeof(char));
 		while (str[x] != c && str[x] != '\0')
 		{
 			splited[y][i] = str[x];
