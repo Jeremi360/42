@@ -17,6 +17,7 @@
 # include <stdlib.h>
 
 /* FUNCTIONS */
+char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_strjoin(const char *s1, const char *s2);
