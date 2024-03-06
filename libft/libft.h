@@ -17,6 +17,7 @@
 # include <stdlib.h>
 
 /* FUNCTIONS */
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*ft_strtrim(const char *s1, const char *set);
