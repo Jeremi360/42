@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:08:47 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/01 16:39:08 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/06 14:12:55 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
-	res = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	res = ft_calloc((ft_strlen(s1) + ft_strlen(s2) + 1), sizeof(char));
 	if (!res)
 		return (NULL);
 	while (s1[i])
