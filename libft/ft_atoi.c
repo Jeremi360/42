@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:56:52 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/06 14:31:29 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/14 15:55:09 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int	ft_atoi(const char *str)
 		}
 		i++;
 	}
-	return (nbr * sign);
+	return (sign * nbr);
 }
