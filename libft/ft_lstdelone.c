@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
-	+#+        */
+/*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 15:13:23 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/29 15:15:56 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/03/19 14:10:47 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/03/19 14:10:50 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int ch)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int		i;
-	char	*ptr;
-
-	i = 0;
-	ptr = 0;
-	while (str[i])
-	{
-		if (str[i] == ch)
-			ptr = (char *)&str[i];
-		i++;
-	}
-	if (str[i] == ch)
-		ptr = (char *)&str[i];
-	return (ptr);
+	del(lst->content);
+	free(lst);
 }

@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
-	+#+        */
+/*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 15:13:23 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/02/29 15:15:56 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/03/19 14:17:22 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/03/19 14:18:48 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int ch)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int		i;
-	char	*ptr;
+	t_list	*tmp;
 
-	i = 0;
-	ptr = 0;
-	while (str[i])
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		if (str[i] == ch)
-			ptr = (char *)&str[i];
-		i++;
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	if (str[i] == ch)
-		ptr = (char *)&str[i];
-	return (ptr);
+	free(*lst);
+	*lst = NULL;
 }
