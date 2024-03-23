@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:01:50 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/06 15:47:50 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/23 20:25:55 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,8 @@ static int	count_digits(int n)
 	return (count);
 }
 
-char	*ft_itoa(int n)
+static char	*do_itoa(int n, char *str, int len)
 {
-	char	*str;
-	int		len;
-
-	len = count_digits(n);
-	str = ft_calloc(len + 1, sizeof(char));
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
 	if (n == 0)
 	{
 		str[0] = '0';
@@ -50,7 +42,7 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		str[0] = '-';
-		n = -n;
+		n *= -1;
 	}
 	while (n > 0)
 	{
@@ -58,4 +50,19 @@ char	*ft_itoa(int n)
 		n /= 10;
 	}
 	return (str);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		len;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	len = count_digits(n);
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	return (do_itoa(n, str, len));
 }
