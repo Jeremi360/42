@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 15:48:18 by jeremi360         #+#    #+#              #
-#    Updated: 2024/03/23 15:03:46 by jeremi360        ###   ########.fr        #
+#    Updated: 2024/03/23 15:52:36 by jeremi360        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,17 +28,19 @@ $(OBJS): $(SRCS)
 	$(CC) $(FLAGS) -c $(SRCS)
 
 all:
-	$(NAME)
+	$(CC) $(FLAGS) -c $(SRCS)
+	ar rcs $(NAME) $(OBJS)
 
 bonus:
 	$(CC) $(FLAGS) -c $(BONUS) $(SRCS)
 	ar rcs $(NAME) $(BONUS_OBJS) $(OBJS)
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	if [ -f $(OBJS) ]; then rm $(OBJS); fi
+	if [ -f $(BONUS_OBJS) ]; then rm $(BONUS_OBJS); fi
 
 fclean:
-	rm -f $(NAME)
+	if [ -f $(NAME) ]; then rm $(NAME); fi
 
 re:
 	fclean all
