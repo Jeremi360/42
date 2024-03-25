@@ -6,64 +6,64 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:52:27 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/25 17:35:33 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/25 17:57:29 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static int	count_words(char const *str, char split)
+size_t	ft_word_count(char const *s, char c)
 {
-	int	i;
-	int	count;
+	size_t	i;
+	size_t	count;
 
-	i = ft_strlen(str);
+	i = 0;
 	count = 0;
-	while (i-- > 0)
+	while (s[i])
 	{
-		while (str[i] == split)
-			i--;
-		count++;
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != 0)
+			count++;
+		i++;
 	}
+	if (s[0] != c)
+		count++;
 	return (count);
 }
 
-char	**ft_split(char const *str, char split)
+char	**empty_arr(void)
 {
 	char	**arr;
-	int		words;
-	int		end;
-	int		start;
-	int		i;
 
-	i = 0;
-	end = ft_strlen(str);
-	start = 0;
-	words = count_words(str, split);
-	printf("words: %d\n", words);
-	if (words == 0)
-		return (NULL);
-	arr = ft_calloc(words, sizeof(char *));
-	while (i < words)
-	{
-		while (str[end] != split)
-			end--;
-		arr[i] = ft_substr(str, start, end);
-		printf("word: %s, start: %d, end: %d\n", arr[i], start, end);
-		start = end + 1;
-		i++;
-	}
+	arr = ft_calloc(1, sizeof(char *));
+	arr[0] = NULL;
 	return (arr);
 }
 
-// int	main(void)
-// {
-// 	char	*str;
-// 	char	**arr;
-// 	int		i;
+char	**ft_split(char const *s, char c)
+{
+	char	**arr;
+	size_t	word_count;
+	size_t	i;
+	size_t	end;
+	size_t	start;
 
-// 	str = "      split       this for   me  !       ";
-// 	arr = ft_split(str, ' ');
-// 	return (0);
-// }
+	i = 0;
+	end = 0;
+	if (!s || s[0] == 0)
+		return (empty_arr());
+	word_count = ft_word_count(s, c);
+	arr = ft_calloc(word_count + 1, sizeof(char *));
+	if (!arr)
+		return (NULL);
+	while (i < word_count)
+	{
+		while (s[end] == c)
+			end++;
+		start = end;
+		while (s[end] != c && s[end])
+			end++;
+		arr[i++] = ft_substr(s, start, end - start);
+	}
+	arr[i] = NULL;
+	return (arr);
+}
