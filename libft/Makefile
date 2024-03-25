@@ -6,7 +6,7 @@
 #    By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 15:48:18 by jeremi360         #+#    #+#              #
-#    Updated: 2024/03/23 15:52:36 by jeremi360        ###   ########.fr        #
+#    Updated: 2024/03/25 18:07:28 by jeremi360        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,29 +21,28 @@ CC = clang
 
 FLAGS = -Wall -Wextra -Werror
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+${NAME}: ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
-$(OBJS): $(SRCS)
-	$(CC) $(FLAGS) -c $(SRCS)
+${OBJS}: ${SRCS}
+	${CC} ${FLAGS} -c ${SRCS}
 
 all:
-	$(CC) $(FLAGS) -c $(SRCS)
-	ar rcs $(NAME) $(OBJS)
+	${CC} ${FLAGS} -c ${SRCS}
+	ar rcs ${NAME} ${OBJS}
 
 bonus:
-	$(CC) $(FLAGS) -c $(BONUS) $(SRCS)
-	ar rcs $(NAME) $(BONUS_OBJS) $(OBJS)
+	${CC} ${FLAGS} -c ${BONUS} ${SRCS}
+	ar rcs ${NAME} ${BONUS_OBJS} ${OBJS}
 
 clean:
-	if [ -f $(OBJS) ]; then rm $(OBJS); fi
-	if [ -f $(BONUS_OBJS) ]; then rm $(BONUS_OBJS); fi
+	rm -rf ${OBJS};
+	rm -rf ${BONUS_OBJS};
 
-fclean:
-	if [ -f $(NAME) ]; then rm $(NAME); fi
+fclean: clean
+	rm -rf ${NAME};
 
-re:
-	fclean all
+re: fclean all
 
 .PHONY: all bonus clean fclean re
 
