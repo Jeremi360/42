@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:44:43 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/19 14:47:43 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/23 20:29:52 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*nlist;
 	t_list	*nobj;
 
-	if (!lst || !f)
+	if (!lst || !f || !del)
 		return (NULL);
-	nlist = ft_lstnew(f(lst->content));
-	if (!nlist)
-		return (NULL);
-	nobj = nlist;
-	lst = lst->next;
+	nlist = NULL;
 	while (lst)
 	{
 		nobj = ft_lstnew(f(lst->content));
