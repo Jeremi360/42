@@ -6,67 +6,64 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:52:27 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/06 14:34:33 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/25 17:35:33 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static size_t	count_words(const char *str, char c)
+static int	count_words(char const *str, char split)
 {
-	size_t	x;
-	size_t	y;
+	int	i;
+	int	count;
 
-	x = 0;
-	y = 1;
-	while (str[x] != '\0')
+	i = ft_strlen(str);
+	count = 0;
+	while (i-- > 0)
 	{
-		if (str[x] == c)
-		{
-			y++;
-		}
-		x++;
+		while (str[i] == split)
+			i--;
+		count++;
 	}
-	return (y);
+	return (count);
 }
 
-size_t	get_word_length(const char *str, char c, size_t start_index)
+char	**ft_split(char const *str, char split)
 {
-	size_t	length;
+	char	**arr;
+	int		words;
+	int		end;
+	int		start;
+	int		i;
 
-	length = 0;
-	while (str[start_index + length] != c && str[start_index + length] != '\0')
-	{
-		length++;
-	}
-	return (length);
-}
-
-char	**ft_split(char const *str, char c)
-{
-	char	**splited;
-	size_t	x;
-	size_t	y;
-	size_t	i;
-
-	x = 0;
-	y = 0;
 	i = 0;
-	splited = ft_calloc(count_words(str, c), sizeof(char *));
-	while (y < count_words(str, c))
+	end = ft_strlen(str);
+	start = 0;
+	words = count_words(str, split);
+	printf("words: %d\n", words);
+	if (words == 0)
+		return (NULL);
+	arr = ft_calloc(words, sizeof(char *));
+	while (i < words)
 	{
-		splited[y] = ft_calloc(get_word_length(str, c, x) + 1, sizeof(char));
-		while (str[x] != c && str[x] != '\0')
-		{
-			splited[y][i] = str[x];
-			i++;
-			x++;
-		}
-		splited[y][i] = 0;
-		i = 0;
-		y++;
-		x++;
+		while (str[end] != split)
+			end--;
+		arr[i] = ft_substr(str, start, end);
+		printf("word: %s, start: %d, end: %d\n", arr[i], start, end);
+		start = end + 1;
+		i++;
 	}
-	splited[y] = 0;
-	return (splited);
+	return (arr);
 }
+
+// int	main(void)
+// {
+// 	char	*str;
+// 	char	**arr;
+// 	int		i;
+
+// 	str = "      split       this for   me  !       ";
+// 	arr = ft_split(str, ' ');
+// 	return (0);
+// }
