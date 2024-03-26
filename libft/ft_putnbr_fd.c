@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 19:01:38 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/26 13:54:46 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/03/26 13:51:11 by jeremi360         #+#    #+#             */
+/*   Updated: 2024/03/26 13:53:31 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
+	char	*str;
 
-	str1 = (unsigned char *)dst;
-	str2 = (unsigned char *)src;
-	if (!dst && !src)
-		return (NULL);
-	if (str1 < str2)
-		while (len--)
-			*str1++ = *str2++;
-	else
-	{
-		str1 += len - 1;
-		str2 += len - 1;
-		while (len--)
-			*str1-- = *str2--;
-	}
-	return (dst);
+	str = ft_itoa(n);
+	ft_putstr_fd(str, fd);
 }

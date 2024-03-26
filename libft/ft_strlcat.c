@@ -28,7 +28,7 @@ int	ft_strlcat(char *dst, const char *src, size_t size)
 	{
 		return (size + src_l);
 	}
-	if(src_l < size - dest_l)
+	if (src_l < size - dest_l)
 		ft_memcpy(dst + dest_l, src, src_l + 1);
 	else
 	{

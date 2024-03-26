@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+
 	+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:13:23 by jeremi360         #+#    #+#             */
@@ -15,18 +15,15 @@
 
 char	*ft_strrchr(const char *str, int ch)
 {
-	int		i;
-	char	*ptr;
+	int	i;
 
-	i = 0;
-	ptr = 0;
-	while (str[i])
+	i = ft_strlen(str) + 1;
+	while (i--)
 	{
-		if (str[i] == ch)
-			ptr = (char *)&str[i];
-		i++;
+		if (str[i] == (char)ch)
+			return ((char *)(str + i));
 	}
-	if (str[i] == ch)
-		ptr = (char *)&str[i];
-	return (ptr);
+	if (str[i] == (char)ch)
+		return ((char *)(str + i));
+	return (0);
 }
