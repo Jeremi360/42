@@ -15,9 +15,9 @@
 
 char	*ft_strrchr(const char *str, int ch)
 {
-	int i;
-	char t;
-	char *temp;
+	int		i;
+	char	t;
+	char	*temp;
 
 	if (!str)
 		return (0);

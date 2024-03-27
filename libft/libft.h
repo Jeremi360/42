@@ -14,8 +14,11 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define SIZE_MAX 18446744073709551615UL
 
 typedef struct s_list
 {
@@ -35,7 +38,7 @@ void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+						void (*del)(void *));
 
 /* PART 2 */
 void				ft_putendl_fd(char *str, int fd);

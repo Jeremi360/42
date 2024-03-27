@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:23:40 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/27 14:19:48 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/27 15:43:14 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,14 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	if (size > 2147483647 || count > 2147483647)
+	if (count == 0 || size == 0)
+	{
+		count = 1;
+		size = 1;
+	}
+	if (size >= SIZE_MAX || count >= SIZE_MAX)
+		return (NULL);
+	if (size < 0 || count < 0)
 		return (NULL);
 	ptr = malloc(count * size);
 	if (ptr == NULL)
