@@ -6,7 +6,7 @@
 /*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 14:28:25 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/23 19:46:49 by jeremi360        ###   ########.fr       */
+/*   Updated: 2024/03/27 14:24:40 by jeremi360        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ char	*ft_strdup(const char *s1)
 	if (!str)
 		return (NULL);
 	ft_memcpy(str, s1, len);
-	str[len] = '\0';
 	return (str);
 }
