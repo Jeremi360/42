@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+         #
+#    By: jbiernac <jbiernac@student.42warsaw.pl    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/19 15:48:18 by jeremi360         #+#    #+#              #
-#    Updated: 2024/03/27 17:55:18 by jeremi360        ###   ########.fr        #
+#    Created: 2024/03/19 15:48:18 by jbiernac         #+#    #+#              #
+#    Updated: 2024/03/27 17:55:18 by jbiernac        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

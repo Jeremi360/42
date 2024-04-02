@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeremi360 <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 16:19:55 by jeremi360         #+#    #+#             */
-/*   Updated: 2024/03/08 16:43:27 by jeremi360        ###   ########.fr       */
+/*   Created: 2024/03/08 16:19:55 by jbiernac         #+#    #+#             */
+/*   Updated: 2024/03/08 16:43:27 by jbiernac        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
