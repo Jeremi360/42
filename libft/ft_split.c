@@ -47,10 +47,10 @@ char	**ft_split(char const *s, char c)
 	size_t	end;
 	size_t	start;
 
-	i = 0;
-	end = 0;
 	if (!s || s[0] == 0)
 		return (empty_arr());
+	i = 0;
+	end = 0;
 	word_count = ft_word_count(s, c);
 	arr = ft_calloc(word_count + 1, sizeof(char *));
 	if (!arr)

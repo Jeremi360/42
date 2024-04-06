@@ -44,7 +44,7 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		n *= -1;
+		n = -n;
 	}
 	i = loop(n, c);
 	while (i-- > 0)

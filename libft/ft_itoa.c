@@ -35,14 +35,11 @@ static int	count_digits(int n)
 static char	*do_itoa(int n, char *str, int len)
 {
 	if (n == 0)
-	{
-		str[0] = '0';
-		return (str);
-	}
+		return (ft_strdup("0"));
 	if (n < 0)
 	{
 		str[0] = '-';
-		n *= -1;
+		n = -n;
 	}
 	while (n > 0)
 	{
