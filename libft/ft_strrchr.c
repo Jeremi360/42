@@ -19,8 +19,6 @@ char	*ft_strrchr(const char *str, int ch)
 	char	t;
 	char	*temp;
 
-	if (!str)
-		return (0);
 	i = ft_strlen(str);
 	t = (char)ch;
 	temp = (char *)str;
