@@ -14,22 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
+	unsigned char	*mem1;
+	unsigned char	*mem2;
 
-	str1 = (unsigned char *)dst;
-	str2 = (unsigned char *)src;
+	mem1 = (unsigned char *)dst;
+	mem2 = (unsigned char *)src;
 	if (!dst && !src)
 		return (NULL);
-	if (str1 < str2)
+	if (mem1 < mem2)
 		while (len--)
-			*str1++ = *str2++;
+			*mem1++ = *mem2++;
 	else
 	{
-		str1 += len - 1;
-		str2 += len - 1;
+		mem1 += len - 1;
+		mem2 += len - 1;
 		while (len--)
-			*str1-- = *str2--;
+			*mem1-- = *mem2--;
 	}
 	return (dst);
 }
