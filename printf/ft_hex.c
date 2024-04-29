@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:54:05 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/04/29 14:54:53 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:50:41 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_puthex(size_t nb)
+char *	ft_hex(unsigned long nb)
 {
 	char	hex[16];
 	int		tmp;
@@ -23,14 +23,13 @@ void	ft_puthex(size_t nb)
 	while (nb)
 	{
 		tmp = nb % 16;
-		hex[i] = (tmp + (tmp >= 10 ? ('A' - 10) : '0'));
+		// hex[i] = (tmp + (tmp >= 10 ? ('A' - 10) : '0'));
+		if (tmp > 9)
+			hex[i] = tmp + ('A' - 10);
+		else
+		tmp += '0';
 		nb /= 16;
 		i++;
 	}
-	ft_putstr("0x");
-	while (i >= 0)
-	{
-		ft_putchar(hex[i]);
-		i--;
-	}
+	return ft_strjoin("0x", hex);
 }

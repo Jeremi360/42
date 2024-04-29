@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/04/29 14:49:28 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:57:10 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ static int search_for_tags(const char* tags, char c, char* tag_ptr)
 {
 	tag_ptr = ft_strchr(tags, c);
 	if (tag_ptr)
-	{
 		return c;
-	}
 	return 0;
 }
 
@@ -30,6 +28,19 @@ static char * str_chr_dup(char c)
 	temp[0] = c;
 	return temp;
 }
+
+static char* str_to_lower(char* str)
+{
+	char * tmp = ft_calloc(ft_strlen(str), sizeof(char));
+	int i = 0;
+	while (str[i] != 0)
+	{
+		tmp[i] = ft_tolower(str[i]);
+		i++;
+	}
+	return tmp;
+}
+
 
 static char* str_arg(int arg_type, va_list args)
 {
@@ -43,12 +54,12 @@ static char* str_arg(int arg_type, va_list args)
 		return(ft_itoa(va_arg(args, int)));
 	if (arg_type == 'u')
 		return(ft_itoa(va_arg(args, unsigned int)));
-	// if (arg_type == 'x')
-		// return(va_arg(args, hex low), 1);
-	// if (arg_type == 'X')
-		// return(va_arg(args, hex up), 1);
-	// if (arg_type == 'p')
-		// return(va_arg(args, pointer), 1);
+	if (arg_type == 'x')
+		return(str_to_lower(ft_hex(va_arg(args, int))));
+	if (arg_type == 'X')
+		return(ft_hex(va_arg(args, unsigned long)));
+	if (arg_type == 'p')
+		return(ft_hex((unsigned long) va_arg(args, void *)));
 	return 0;
 }
 
@@ -120,18 +131,18 @@ int main()
 	printf("%d\n", printf("printf %%s: %s |", test_str));
 	ft_printf("%d\n", ft_printf("ft_printf %%s: %s |", test_str) - 3);
 
+	// %x
+	printf("%d\n", printf("printf %%x: %x |", test_num));
+	ft_printf("%d\n", ft_printf("ft_printf %%x: %x |", test_num));
+
+	// %X
+	printf("%d\n", printf("printf %%X: %X |", test_num));
+	ft_printf("%d\n", ft_printf("ft_printf %%X: %X |", test_num));
+
 	// todo: %p
-	// char *ptr = "test";
-	// printf("%d\n", printf("printf %%p: %p |", ptr));
-	// ft_printf("%d\n", ft_printf("ft_printf %%p: %p |", ptr));
-
-	// todo: %x
-	// printf("%d\n", printf("printf %%x: %x |", test_num));
-	// ft_printf("%d\n", ft_printf("ft_printf %%x: %x |", test_num));
-
-	// todo: %X
-	// printf("%d\n", printf("printf %%X: %X |", test_num));
-	// ft_printf("%d\n", ft_printf("ft_printf %%X: %X |", test_num));
+	char *ptr = "test";
+	printf("%d\n", printf("printf %%p: %p |", ptr));
+	ft_printf("%d\n", ft_printf("ft_printf %%p: %p |", ptr));
 
 	return 0;
 }

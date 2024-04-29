@@ -6,10 +6,9 @@
 #    By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/16 09:41:14 by jbiernac          #+#    #+#              #
-#    Updated: 2024/04/16 09:44:13 by jbiernac         ###   ########.fr        #
+#    Updated: 2024/04/29 15:43:23 by jbiernac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 SRCS = libft/ft_itoa.c libft/ft_lstadd_back.c libft/ft_lstadd_front.c \
 	libft/ft_lstclear.c libft/ft_lstdelone.c libft/ft_lstiter.c \
