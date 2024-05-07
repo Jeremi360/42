@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/07 12:47:39 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/07 15:27:29 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ static char* str_arg(int arg_type, va_list args)
 	if (arg_type == 'u')
 		return(ft_itoa(va_arg(args, unsigned int)));
 	if (arg_type == 'x')
-		return(ft_hex(va_arg(args, int), arg_type));
+		return(ft_hex(va_arg(args, unsigned long), arg_type));
 	if (arg_type == 'X')
 		return(ft_hex(va_arg(args, unsigned long), arg_type));
 	if (arg_type == 'p')
-		return(ft_hex((unsigned long) va_arg(args, void *), arg_type));
+		return(ft_hex(va_arg(args, unsigned long), arg_type));
 	return 0;
 }
 
@@ -118,6 +118,11 @@ int main()
 	printf("%d\n", printf("printf %%s: %s |", test_str));
 	ft_printf("%d\n", ft_printf("ft_printf %%s: %s |", test_str) - 3);
 
+	// %p
+	char *ptr = "test";
+	printf("%d\n", printf("printf %%p: %p |", ptr));
+	ft_printf("%d\n", ft_printf("ft_printf %%p: %p |", ptr));
+
 	// %x
 	printf("%d\n", printf("printf %%x: %x |", test_num));
 	ft_printf("%d\n", ft_printf("ft_printf %%x: %x |", test_num));
@@ -125,11 +130,6 @@ int main()
 	// %X
 	printf("%d\n", printf("printf %%X: %X |", test_num));
 	ft_printf("%d\n", ft_printf("ft_printf %%X: %X |", test_num));
-
-	// todo: %p
-	char *ptr = "test";
-	printf("%d\n", printf("printf %%p: %p |", ptr));
-	ft_printf("%d\n", ft_printf("ft_printf %%p: %p |", ptr));
 
 	return 0;
 }

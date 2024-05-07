@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hex.c                                           :+:      :+:    :+:   */
+/*   ft_hex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 14:54:05 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/04/29 15:50:41 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/07 13:34:40 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char *	ft_hex(unsigned long nb)
+char*	ft_hex(unsigned long nb, char format)
 {
 	char	hex[16];
-	int		tmp;
-	int		i;
+	char*	result = ft_calloc(16, sizeof(char));
+	char*	base = "0123456789abcdef";
+	int		tmp = 0;
+	int		i = 0;
+	int j = 0;
 
-	ft_bzero(hex, 16);
-	i = 0;
+	if (format == 'X')
+		base = "0123456789ABCDEF";
+	
 	while (nb)
 	{
 		tmp = nb % 16;
-		// hex[i] = (tmp + (tmp >= 10 ? ('A' - 10) : '0'));
-		if (tmp > 9)
-			hex[i] = tmp + ('A' - 10);
-		else
-		tmp += '0';
 		nb /= 16;
+		hex[i] = base[tmp];
 		i++;
 	}
-	return ft_strjoin("0x", hex);
+	while (i >= 0)
+	{
+		result[j] = hex[i];
+		i--;
+		j++;
+	}
+	if (format == 'p')
+		result = ft_strjoin("0x", result);
+	return result;
 }
