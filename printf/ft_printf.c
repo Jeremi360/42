@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/04/29 15:57:10 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/07 12:47:39 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,6 @@ static char * str_chr_dup(char c)
 	return temp;
 }
 
-static char* str_to_lower(char* str)
-{
-	char * tmp = ft_calloc(ft_strlen(str), sizeof(char));
-	int i = 0;
-	while (str[i] != 0)
-	{
-		tmp[i] = ft_tolower(str[i]);
-		i++;
-	}
-	return tmp;
-}
-
-
 static char* str_arg(int arg_type, va_list args)
 {
 	if (arg_type == '%')
@@ -55,11 +42,11 @@ static char* str_arg(int arg_type, va_list args)
 	if (arg_type == 'u')
 		return(ft_itoa(va_arg(args, unsigned int)));
 	if (arg_type == 'x')
-		return(str_to_lower(ft_hex(va_arg(args, int))));
+		return(ft_hex(va_arg(args, int), arg_type));
 	if (arg_type == 'X')
-		return(ft_hex(va_arg(args, unsigned long)));
+		return(ft_hex(va_arg(args, unsigned long), arg_type));
 	if (arg_type == 'p')
-		return(ft_hex((unsigned long) va_arg(args, void *)));
+		return(ft_hex((unsigned long) va_arg(args, void *), arg_type));
 	return 0;
 }
 
