@@ -16,21 +16,19 @@ char*	ft_hex(unsigned long nb, char format)
 {
 	char	hex[16];
 	char*	result = ft_calloc(16, sizeof(char));
-	char*	base = ft_calloc(16, sizeof(char));
+	char*	base = "0123456789abcdef";
 	int		tmp = 0;
 	int		i = 0;
 	int j = 0;
 
 	if (format == 'X')
 		base = "0123456789ABCDEF";
-	if (ft_strchr("xp", format))
-		base = "0123456789abcdef";
 	
 	while (nb)
 	{
 		tmp = nb % 16;
-		hex[i] = base[tmp];
 		nb /= 16;
+		hex[i] = base[tmp];
 		i++;
 	}
 	while (i >= 0)
