@@ -6,86 +6,91 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/11 12:04:57 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/11 14:29:58 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdarg.h>
-# include "ft_printf.h"
+#include "ft_printf.h"
+#include <stdarg.h>
 
-static int search_for_tags(const char* tags, char c, char* tag_ptr)
+static int	search_for_tags(const char *tags, char c, char *tag_ptr)
 {
 	tag_ptr = ft_strchr(tags, c);
 	if (tag_ptr)
-		return c;
-	return 0;
+		return (c);
+	return (0);
 }
 
-static char * str_chr_dup(char c)
+static char	*str_chr_dup(char c)
 {
-	char *temp = ft_strdup("");
+	char	*temp;
+
+	temp = ft_strdup("");
 	temp[0] = c;
-	return temp;
+	return (temp);
 }
 
-static char* str_arg(int arg_type, va_list args)
+static char	*str_arg(int arg_type, va_list args)
 {
 	if (arg_type == '%')
-		return "%";
+		return ("%");
 	if (arg_type == 'c')
-		return str_chr_dup(va_arg(args, int));
+		return (str_chr_dup(va_arg(args, int)));
 	if (arg_type == 's')
 		return (ft_strdup(va_arg(args, char *)));
 	if (ft_strchr("id", arg_type))
-		return(ft_itoa(va_arg(args, int)));
+		return (ft_itoa(va_arg(args, int)));
 	if (arg_type == 'u')
-		return(ft_itoa(va_arg(args, unsigned int)));
+		return (ft_itoa(va_arg(args, unsigned int)));
 	if (arg_type == 'x')
-		return(ft_hex(va_arg(args, unsigned long), arg_type));
+		return (ft_hex(va_arg(args, unsigned long), arg_type));
 	if (arg_type == 'X')
-		return(ft_hex(va_arg(args, unsigned long), arg_type));
+		return (ft_hex(va_arg(args, unsigned long), arg_type));
 	if (arg_type == 'p')
-		return(ft_hex(va_arg(args, unsigned long), arg_type));
-	return 0;
+		return (ft_hex(va_arg(args, unsigned long), arg_type));
+	return (0);
 }
 
-int ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
-	const char* tags = "cspdiuxX%";
-	char *found = (char *) str;
-	char *tmp = ft_strdup("");
+	const char	*tags = "cspdiuxX%";
+	char		*found;
+	char		*tmp;
+	va_list		args;
+	size_t		i;
+	size_t		tag;
+	size_t		len;
+	size_t		print_length;
 
-	va_list args;
+	found = (char *)str;
+	tmp = ft_strdup("");
 	va_start(args, str);
-
-	size_t i = 0;
-	size_t tag = 0;
-	size_t len = ft_strlen(str);
-	size_t print_lenght = 0;
-
+	i = 0;
+	tag = 0;
+	len = ft_strlen(str);
+	print_length = 0;
 	while (i < len)
 	{
 		if (found[i] == '%')
 		{
-			tag = search_for_tags(tags, found[i+1], found);
-			if(tag != 0)
+			tag = search_for_tags(tags, found[i + 1], found);
+			if (tag != 0)
 			{
 				tmp = str_arg(tag, args);
-				print_lenght += ft_strlen(tmp);
+				print_length += ft_strlen(tmp);
 				ft_putstr_fd(tmp, 1);
 				i++;
 			}
 		}
 		else
 		{
-			print_lenght++;
+			print_length++;
 			ft_putchar_fd(found[i], 1);
 		}
 		i++;
 	}
-
 	va_end(args);
-	return print_lenght;
+	return (print_length);
 }
 
 // #include <stdio.h>
@@ -95,7 +100,7 @@ int ft_printf(const char *str, ...)
 // 	char test_chr = 'c';
 // 	printf("%d\n", printf("printf %%c: %c |", test_chr));
 // 	ft_printf("%d\n", ft_printf("ft_printf %%c: %c |", test_chr) - 3);
-	
+
 // 	// %%
 // 	printf("%d\n", printf("printf %%%%: %% |"));
 // 	ft_printf("%d\n", ft_printf("ft_printf %%%%: %% |") - 3);
@@ -131,9 +136,5 @@ int ft_printf(const char *str, ...)
 // 	printf("%d\n", printf("printf %%X: %X |", test_num));
 // 	ft_printf("%d\n", ft_printf("ft_printf %%X: %X |", test_num));
 
-// 	return 0;
+// 	return (0);
 // }
-
-
-
-

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+
 	+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:32:41 by jbiernac         #+#    #+#             */

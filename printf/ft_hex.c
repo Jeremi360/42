@@ -12,18 +12,18 @@
 
 #include "ft_printf.h"
 
-char*	ft_hex(unsigned long nb, char format)
+char	*ft_hex(unsigned long nb, char format)
 {
-	char	hex[16];
-	char*	result = ft_calloc(16, sizeof(char));
-	char*	base = "0123456789abcdef";
-	int		tmp = 0;
-	int		i = 0;
+	char hex[16];
+	char *result = ft_calloc(16, sizeof(char));
+	char *base = "0123456789abcdef";
+	int tmp = 0;
+	int i = 0;
 	int j = 0;
 
 	if (format == 'X')
 		base = "0123456789ABCDEF";
-	
+
 	while (nb)
 	{
 		tmp = nb % 16;
@@ -39,5 +39,5 @@ char*	ft_hex(unsigned long nb, char format)
 	}
 	if (format == 'p')
 		result = ft_strjoin("0x", result);
-	return result;
+	return (result);
 }

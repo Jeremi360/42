@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+      
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>        +#+  +:+
 	+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:23:05 by jbiernac         #+#    #+#             */
