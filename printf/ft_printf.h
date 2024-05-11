@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:51:37 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/11 12:00:31 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/11 12:03:48 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FTPRINT_H
+# define FTPRINT_H
 
 # include "libft.h"
 
