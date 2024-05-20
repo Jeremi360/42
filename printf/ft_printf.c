@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/13 14:00:27 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/20 11:51:28 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	search_for_tags(const char *tags, char c, char *tag_ptr)
 static char	*str_chr_dup(char c)
 {
 	char	*temp;
-
+	if (c == 0)
+		return (NULL);
 	temp = ft_strdup("");
 	temp[0] = c;
 	return (temp);
@@ -48,7 +49,7 @@ static char	*str_arg(int arg_type, va_list args)
 		return (ft_hex(va_arg(args, unsigned long), arg_type));
 	if (arg_type == 'p')
 		return (ft_hex(va_arg(args, unsigned long), arg_type));
-	return (0);
+	return (NULL);
 }
 
 int	ft_printf(const char *str, ...)
@@ -74,8 +75,13 @@ int	ft_printf(const char *str, ...)
 			if (tag)
 			{
 				tmp = str_arg(tag, args);
-				print_length += ft_strlen(tmp);
-				ft_putstr_fd(tmp, 1);
+				if (tmp)
+				{
+					print_length += ft_strlen(tmp);
+					ft_putstr_fd(tmp, 1);
+				}
+				else
+					print_length--;
 			}
 		}
 		else

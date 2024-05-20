@@ -18,16 +18,14 @@ static char	to_hex(int n, char format)
 	if (format == 'X')
 		d = 'A';
 	if (n < 10)
-	{
 		return n + '0';
-	}
 	return n + d;
 }
 
 char	*ft_hex(unsigned long nb, char format)
 {
-	char hex[16];
-	char *result = ft_calloc(16, sizeof(char));
+	char *hex = ft_calloc(17, sizeof(char));
+	char *result = ft_calloc(17, sizeof(char));
 	int tmp = 0;
 	int i = 0;
 	int j = 0;
@@ -39,12 +37,14 @@ char	*ft_hex(unsigned long nb, char format)
 		hex[i] = to_hex(tmp, format);
 		i++;
 	}
+	hex[i] = '\0';
 	while (i >= 0)
 	{
 		result[j] = hex[i];
 		i--;
 		j++;
 	}
+	result[j] = '\0';
 	if (format == 'p')
 		result = ft_strjoin("0x", result);
 	return (result);

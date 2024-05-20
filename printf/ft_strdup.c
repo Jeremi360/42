@@ -18,9 +18,12 @@ char	*ft_strdup(const char *s1)
 	char	*str;
 
 	len = ft_strlen(s1) + 1;
+	if (!s1)
+		len = ft_strlen("(null)");
 	str = ft_calloc(len, sizeof(char));
-	if (!str)
-		return (NULL);
-	ft_memcpy(str, s1, len);
+	if (!s1)
+		str = "(null)";
+	else
+		ft_memcpy(str, s1, len);
 	return (str);
 }
