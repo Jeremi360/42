@@ -24,7 +24,7 @@ static char	to_hex(int n, char format)
 
 char	*ft_hex(unsigned long nb, char format)
 {
-	char *hex = ft_calloc(17, sizeof(char));
+	char *hex = ft_calloc(16, sizeof(char));
 	char *result = ft_calloc(17, sizeof(char));
 	int tmp = 0;
 	int i = 0;
@@ -37,7 +37,7 @@ char	*ft_hex(unsigned long nb, char format)
 		hex[i] = to_hex(tmp, format);
 		i++;
 	}
-	hex[i] = '\0';
+	i--;
 	while (i >= 0)
 	{
 		result[j] = hex[i];
