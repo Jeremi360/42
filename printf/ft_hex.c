@@ -29,6 +29,7 @@ static int	loop01(int nb, char *hex, char format)
 	int	tmp;
 	int	i;
 
+	i = 0;
 	while (nb)
 	{
 		tmp = nb % 16;
@@ -49,6 +50,7 @@ char	*ft_hex(unsigned long nb, char format)
 	hex = ft_calloc(16, sizeof(char));
 	result = ft_calloc(17, sizeof(char));
 	i = loop01(nb, hex, format) - 1;
+	j = 0;
 	while (i >= 0)
 	{
 		result[j] = hex[i];
