@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/21 12:02:24 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:52:01 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,38 +32,40 @@ static char	*str_chr_dup(char c)
 	return (temp);
 }
 
-static char	*str_arg(int arg_type, va_list args)
+static int	str_arg(int arg_type, va_list args)
 {
+	char	*str;
+
 	if (arg_type == '%')
-		return ("%");
+		str = "%";
 	if (arg_type == 'c')
-		return (str_chr_dup(va_arg(args, int)));
+		str = str_chr_dup(va_arg(args, int));
 	if (arg_type == 's')
-		return (ft_strdup(va_arg(args, char *)));
+		str = ft_strdup(va_arg(args, char *));
 	if (ft_strchr("id", arg_type))
-		return (ft_itoa(va_arg(args, int)));
+		str = ft_itoa(va_arg(args, int));
 	if (arg_type == 'u')
-		return (ft_itoa(va_arg(args, unsigned int)));
+		str = ft_itoa(va_arg(args, unsigned int));
 	if (arg_type == 'x')
-		return (ft_hex(va_arg(args, unsigned long), arg_type));
+		str = ft_hex(va_arg(args, unsigned long), arg_type);
 	if (arg_type == 'X')
-		return (ft_hex(va_arg(args, unsigned long), arg_type));
+		str = ft_hex(va_arg(args, unsigned long), arg_type);
 	if (arg_type == 'p')
-		return (ft_hex(va_arg(args, unsigned long), arg_type));
-	return (NULL);
+		str = ft_hex(va_arg(args, unsigned long), arg_type);
+	if (str)
+		ft_putstr_fd(str, 1);
+	return (ft_strlen(str));
 }
 
 int	ft_printf(const char *str, ...)
 {
 	const char	*tags = "cspdiuxX%";
 	char		*found;
-	char		*tmp;
 	va_list		args;
 	size_t		tag;
 	size_t		print_length;
 
 	found = (char *)str;
-	tmp = ft_strdup("");
 	va_start(args, str);
 	tag = 0;
 	print_length = 0;
@@ -74,16 +76,7 @@ int	ft_printf(const char *str, ...)
 			found++;
 			tag = search_for_tags(tags, *found, found);
 			if (tag)
-			{
-				tmp = str_arg(tag, args);
-				if (tmp)
-				{
-					print_length += ft_strlen(tmp);
-					ft_putstr_fd(tmp, 1);
-				}
-				else
-					print_length--;
-			}
+				print_length += str_arg(tag, args);
 		}
 		else
 		{
