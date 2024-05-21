@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/21 14:54:34 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/21 14:58:30 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,11 @@ int	ft_printf(const char *str, ...)
 			found++;
 			tag = search_for_tags(*found, found);
 			if (tag)
-				print_length += str_arg(tag, args);
+				print_length += str_arg(tag, args) - 1;
 		}
 		else
-		{
-			print_length++;
 			ft_putchar_fd(*found, 1);
-		}
+		print_length++;
 		found++;
 	}
 	va_end(args);
