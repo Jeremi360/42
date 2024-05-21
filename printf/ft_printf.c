@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/20 11:51:28 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:02:24 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static int	search_for_tags(const char *tags, char c, char *tag_ptr)
 static char	*str_chr_dup(char c)
 {
 	char	*temp;
+
 	if (c == 0)
 		return (NULL);
 	temp = ft_strdup("");
@@ -96,52 +97,48 @@ int	ft_printf(const char *str, ...)
 }
 
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
+	char	test_chr;
+	int		test_num;
+	char	*test_str;
+	char	*ptr;
+
 	// %c
-	char test_chr = 'z';
+	test_chr = 'z';
 	printf("%d\n", printf("printf %%c: %c |", test_chr));
 	ft_printf("%d\n", ft_printf("ft_printf %%c: %c |", test_chr) - 3);
-
 	// %c
 	test_chr = 'Z';
 	printf("%d\n", printf("printf %%c: %c |", test_chr));
 	ft_printf("%d\n", ft_printf("ft_printf %%c: %c |", test_chr) - 3);
-
 	// %%
 	printf("%d\n", printf("printf %%%%: %% |"));
 	ft_printf("%d\n", ft_printf("ft_printf %%%%: %% |") - 3);
-
 	// %i
-	int test_num = 42;
+	test_num = 42;
 	printf("%d\n", printf("printf %%i: %i |", test_num));
 	ft_printf("%d\n", ft_printf("ft_printf %%i: %i |", test_num) - 3);
-
 	// %d
 	printf("%d\n", printf("printf %%d: %d |", test_num));
 	ft_printf("%d\n", ft_printf("ft_printf %%d: %d |", test_num) - 3);
-
 	// %u
 	printf("%d\n", printf("printf %%u: %u |", test_num));
 	ft_printf("%d\n", ft_printf("ft_printf %%u: %u |", test_num - 3));
-
 	// %s
-	char *test_str = "string";
+	test_str = "string";
 	printf("%d\n", printf("printf %%s: %s |", test_str));
 	ft_printf("%d\n", ft_printf("ft_printf %%s: %s |", test_str) - 3);
-
 	// %p
-	char *ptr = "test";
+	ptr = "test";
 	printf("%d\n", printf("printf %%p: %p |", ptr));
 	ft_printf("%d\n", ft_printf("ft_printf %%p: %p |", ptr));
-
 	// %x
 	printf("%d\n", printf("printf %%x: %x |", test_num));
 	ft_printf("%d\n", ft_printf("ft_printf %%x: %x |", test_num));
-
 	// %X
 	printf("%d\n", printf("printf %%X: %X |", test_num));
 	ft_printf("%d\n", ft_printf("ft_printf %%X: %X |", test_num));
-
 	return (0);
 }

@@ -14,21 +14,20 @@
 
 static char	to_hex(int n, char format)
 {
-	char d = 'a';
+	char	d;
+
+	d = 'a';
 	if (format == 'X')
 		d = 'A';
 	if (n < 10)
-		return n + '0';
-	return n + d;
+		return (n + '0');
+	return (n + d);
 }
 
-char	*ft_hex(unsigned long nb, char format)
+static int	loop01(int nb, char *hex, char format)
 {
-	char *hex = ft_calloc(16, sizeof(char));
-	char *result = ft_calloc(17, sizeof(char));
-	int tmp = 0;
-	int i = 0;
-	int j = 0;
+	int	tmp;
+	int	i;
 
 	while (nb)
 	{
@@ -37,7 +36,19 @@ char	*ft_hex(unsigned long nb, char format)
 		hex[i] = to_hex(tmp, format);
 		i++;
 	}
-	i--;
+	return (i);
+}
+
+char	*ft_hex(unsigned long nb, char format)
+{
+	char	*hex;
+	char	*result;
+	int		i;
+	int		j;
+
+	hex = ft_calloc(16, sizeof(char));
+	result = ft_calloc(17, sizeof(char));
+	i = loop01(nb, hex, format) - 1;
 	while (i >= 0)
 	{
 		result[j] = hex[i];
