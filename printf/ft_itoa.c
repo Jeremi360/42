@@ -32,7 +32,7 @@ static int	count_digits(int n)
 	return (count);
 }
 
-static char	*do_itoa(int n, char *str, int len)
+static char	*write_int(int n, char *str, int len)
 {
 	if (n == 0)
 	{
@@ -64,5 +64,5 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	return (do_itoa(n, str, len));
+	return (write_int(n, str, len));
 }
