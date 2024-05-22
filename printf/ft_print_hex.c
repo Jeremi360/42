@@ -14,15 +14,15 @@
 
 static char	to_hex(int n, char format)
 {
-	char *hex;
+	char	*hex;
 
 	hex = "0123456789abcdef";
 	if (format == 'X')
 		hex = "0123456789ABCDEF";
-	return hex[n % 16];
+	return (hex[n % 16]);
 }
 
-static int	loop01(int nb, char *hex, char format)
+static int	loop01(unsigned long long nb, char *hex, char format)
 {
 	int	tmp;
 	int	i;
@@ -38,14 +38,21 @@ static int	loop01(int nb, char *hex, char format)
 	return (i);
 }
 
-int	ft_print_hex(unsigned long nb, char format)
+int	ft_print_hex(unsigned long long nb, char format)
 {
 	char	hex[16];
 	int		i;
 	int		j;
 
-	i = loop01(nb, hex, format);
+	if (nb == 0)
+		return (ft_print_char('0'));
 	j = 0;
+	if (nb < 0)
+	{
+		j += ft_print_char('-');
+		nb = -nb;
+	}
+	i = loop01(nb, hex, format);
 	if (format == 'p')
 		j += ft_print_str("0x");
 	while (i-- > 0)

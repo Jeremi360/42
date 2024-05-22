@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:43:22 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/22 16:04:07 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:31:10 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_print_int(int n)
 
 	len = 0;
 	if (n == 0)
-		return (ft_print_int(0));
+		return (ft_print_char('0'));
 	if (n == -2147483648)
 		return (ft_print_str("-2147483648"));
 	if (n < 0)

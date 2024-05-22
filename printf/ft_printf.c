@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/22 16:52:50 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:39:21 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ static int	str_arg(int arg_type, va_list args)
 	if (arg_type == 'u')
 		return (ft_print_uint(va_arg(args, unsigned int)));
 	if (arg_type == 'x')
-		return (ft_print_hex(va_arg(args, unsigned long), arg_type));
+		return (ft_print_hex(va_arg(args, unsigned long long), arg_type));
 	if (arg_type == 'X')
-		return (ft_print_hex(va_arg(args, unsigned long), arg_type));
+		return (ft_print_hex(va_arg(args, unsigned long long), arg_type));
 	if (arg_type == 'p')
-		return (ft_print_hex(va_arg(args, unsigned long), arg_type));
+		return (ft_print_ptr(va_arg(args, unsigned long long)));
 	return (0);
 }
 
@@ -63,63 +63,62 @@ int	ft_printf(const char *str, ...)
 			found++;
 			tag = search_for_tags(*found, found);
 			if (tag)
-				print_length += str_arg(tag, args) - 1;
+				print_length += str_arg(tag, args);
 		}
 		else
-			ft_putchar_fd(*found, 1);
-		print_length++;
+			print_length += ft_print_char(*found);
 		found++;
 	}
 	va_end(args);
 	return (print_length);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char test_chr;
-	int test_num;
-	char *test_str = "test";
-	char *ptr;
+// int	main(void)
+// {
+// 	char test_chr;
+// 	int test_num;
+// 	char *test_str = "test";
+// 	char *ptr;
 
-	// %c
-	test_chr = 'z';
-	printf("%d\n", printf("printf %%c: %c |", test_chr));
-	ft_printf("%d\n", ft_printf("ft_printf %%c: %c |", test_chr) - 3);
-	// %c
-	test_chr = 'Z';
-	printf("%d\n", printf("printf %%c: %c |", test_chr));
-	ft_printf("%d\n", ft_printf("ft_printf %%c: %c |", test_chr) - 3);
-	// %%
-	printf("%d\n", printf("printf %%%%: %% |"));
-	ft_printf("%d\n", ft_printf("ft_printf %%%%: %% |") - 3);
-	// %i
-	test_num = 42;
-	printf("%d\n", printf("printf %%i: %i |", test_num));
-	ft_printf("%d\n", ft_printf("ft_printf %%i: %i |", test_num) - 3);
-	// %d
-	printf("%d\n", printf("printf %%d: %d |", test_num));
-	ft_printf("%d\n", ft_printf("ft_printf %%d: %d |", test_num) - 3);
-	// %u
-	printf("%d\n", printf("printf %%u: %u |", test_num));
-	ft_printf("%d\n", ft_printf("ft_printf %%u: %u |", test_num) - 3);
-	// %s
-	printf("%d\n", printf("printf %%s: %s |", test_str));
-	ft_printf("%d\n", ft_printf("ft_printf %%s: %s |", test_str) - 3);
-	// %s - null
-	test_str = NULL;
-	printf("%d\n", printf("printf %%s: %s |", test_str));
-	ft_printf("%d\n", ft_printf("ft_printf %%s: %s |", test_str) - 3);
-	// %p
-	ptr = "test";
-	printf("%d\n", printf("printf %%p: %p |", ptr));
-	ft_printf("%d\n", ft_printf("ft_printf %%p: %p |", ptr) - 3);
-	// %x
-	printf("%d\n", printf("printf %%x: %x |", test_num));
-	ft_printf("%d\n", ft_printf("ft_printf %%x: %x |", test_num) - 3);
-	// %X
-	printf("%d\n", printf("printf %%X: %X |", test_num));
-	ft_printf("%d\n", ft_printf("ft_printf %%X: %X |", test_num) - 3);
-	return (0);
-}
+// 	// %c
+// 	test_chr = 'z';
+// 	printf("%d\n", printf("printf %%c: %c |", test_chr));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%c: %c |", test_chr) - 3);
+// 	// %c
+// 	test_chr = 'Z';
+// 	printf("%d\n", printf("printf %%c: %c |", test_chr));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%c: %c |", test_chr) - 3);
+// 	// %%
+// 	printf("%d\n", printf("printf %%%%: %% |"));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%%%: %% |") - 3);
+// 	// %i
+// 	test_num = 42;
+// 	printf("%d\n", printf("printf %%i: %i |", test_num));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%i: %i |", test_num) - 3);
+// 	// %d
+// 	printf("%d\n", printf("printf %%d: %d |", test_num));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%d: %d |", test_num) - 3);
+// 	// %u
+// 	printf("%d\n", printf("printf %%u: %u |", test_num));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%u: %u |", test_num) - 3);
+// 	// %s
+// 	printf("%d\n", printf("printf %%s: %s |", test_str));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%s: %s |", test_str) - 3);
+// 	// %s - null
+// 	test_str = NULL;
+// 	printf("%d\n", printf("printf %%s: %s |", test_str));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%s: %s |", test_str) - 3);
+// 	// %p
+// 	ptr = "test";
+// 	printf("%d\n", printf("printf %%p: %p |", ptr));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%p: %p |", ptr) - 3);
+// 	// %x
+// 	printf("%d\n", printf("printf %%x: %x |", test_num));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%x: %x |", test_num) - 3);
+// 	// %X
+// 	printf("%d\n", printf("printf %%X: %X |", test_num));
+// 	ft_printf("%d\n", ft_printf("ft_printf %%X: %X |", test_num) - 3);
+// 	return (0);
+// }
