@@ -14,5 +14,7 @@
 
 int	ft_print_str(char *str)
 {
+	if (!str)
+		return (ft_print_str("(null)"));
 	return (write(1, str, ft_strlen(str)));
 }
