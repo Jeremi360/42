@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:51:37 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/22 17:42:25 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:19:46 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <unistd.h>
 
 int	ft_print_char(char c);
-int	ft_print_hex(unsigned long long nb, char format);
-int	ft_print_ptr(unsigned long long ptr);
+int	ft_print_hex(unsigned int nb, char format);
+int	ft_print_ptr(unsigned long ptr);
 int	ft_print_str(char *str);
 int	ft_print_int(int n);
 int	ft_print_uint(unsigned int n);
