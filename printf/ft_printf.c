@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/24 11:35:31 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:47:43 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	tag = 0;
 	print_length = 0;
+	if (!str)
+		return (-1);
 	while (*found)
 	{
 		if (*found == '%')
@@ -69,8 +71,7 @@ int	ft_printf(const char *str, ...)
 			print_length += ft_print_char(*found);
 		found++;
 	}
-	va_end(args);
-	return (print_length);
+	return (va_end(args), print_length);
 }
 
 // #include <stdio.h>
@@ -129,5 +130,10 @@ int	ft_printf(const char *str, ...)
 // 	mix_str = ft_strjoin("ft_", mix_str);
 // 	ft_printf("%d\n", ft_printf(mix_str, 'm', 'M', "Mix", "miX", 64, -86, 69,
 // 			4242424, -4242424, test_chr, test_num, test_str) - 3);
+
+// 	char *str_n = NULL;
+// 	printf("%d\n", printf(str_n));
+// 	ft_printf("%d\n", ft_printf(str_n));
+
 // 	return (0);
 // }
