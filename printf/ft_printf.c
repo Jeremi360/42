@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 09:45:57 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/24 11:47:43 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/24 11:48:33 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int	ft_printf(const char *str, ...)
 	size_t	tag;
 	size_t	print_length;
 
+	if (!str)
+		return (-1);
 	found = (char *)str;
 	va_start(args, str);
 	tag = 0;
 	print_length = 0;
-	if (!str)
-		return (-1);
 	while (*found)
 	{
 		if (*found == '%')
