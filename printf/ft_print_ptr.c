@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 17:32:37 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/05/24 11:26:38 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/05/25 16:00:58 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int	ft_print_ptr(unsigned long ptr_nb)
 
 	if (ptr_nb == 0)
 		return (ft_print_str("(nil)"));
-	if (ptr_nb == 0)
-		return (ft_print_char('0'));
 	j = 0;
 	if (ptr_nb < 0)
 	{
