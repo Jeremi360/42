@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:44:05 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/06/24 14:14:23 by jbiernac         ###   ########.fr       */
+/*   Created: 2024/06/18 15:13:17 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/06/24 14:23:26 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static char	*ft_strdup(const char *s1)
 {
 	char	*s2;
 	size_t	i;
+
 	i = 0;
 	while (s1[i])
 		i += 1;
@@ -33,7 +34,7 @@ static char	*ft_strdup(const char *s1)
 
 // Allocates with malloc() and returns a “fresh” string ending with ’\0’,
 // result of the concatenation of s1 and s2. If the allocation fails the
-// function returns NULL.
+// function returns NULL. 
 
 static char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -41,6 +42,7 @@ static char	*ft_strjoin(char const *s1, char const *s2)
 	char	*tmp_s3;
 	size_t	i;
 	size_t	j;
+
 	j = 0;
 	i = 0;
 	while (s1[i])
@@ -68,6 +70,7 @@ static int	gnl_verify_line(char **stack, char **line)
 	char	*tmp_stack;
 	char	*strchr_stack;
 	int		i;
+
 	i = 0;
 	strchr_stack = *stack;
 	while (strchr_stack[i] != '\n')
@@ -84,7 +87,7 @@ static int	gnl_verify_line(char **stack, char **line)
 // defined by the BUFF_SIZE macro in the get_nex_line.h file. It's going to
 // continue the reading when the return value of the read function is greater
 // than zero (no errors, or if there is nothing else to read).
-// If there is something in the stack, we will concatinate whatever is in
+// If there is something in the stack, we will concatenate whatever is in
 // there, with whatever is read in the heap. If no, we will just add
 // whatever is in the heap into the stack. Then we will verify the stack to
 // see if there is a newline. If there is, we will break from the while loop
@@ -96,6 +99,7 @@ static int	gnl_read_file(int fd, char *heap, char **stack, char **line)
 {
 	int		ret;
 	char	*tmp_stack;
+
 	while ((ret = read(fd, heap, BUFF_SIZE)) > 0)
 	{
 		heap[ret] = '\0';
@@ -112,49 +116,4 @@ static int	gnl_read_file(int fd, char *heap, char **stack, char **line)
 			break ;
 	}
 	return (RET_VALUE(ret));
-}
-
-// This is where the real shit happens.
-// It first checks for errors (is the line is empty, if the number of the file
-// descriptor is invalid, or if it fails to allocate the heap), so it can return
-// a minus one (-1) if needed.
-//
-// If there is something in the stack (because we are using a static variable),
-// we verify that there is a newline. If not, we allocate memory for the heap,
-// and we read the file.
-//
-// When the reading of the file ends, we will free the heap (we're not gonna
-// use it anymore), and we check for the value of ret (if it's 1 or -1, return
-// that, if the stack is empty, return 0). If neither of these conditions are
-// valid, we assing line to the value of the stack, free the stack, and return 1
-//
-// A good read about file descriptors:
-// http://www.bottomupcs.com/file_descriptors.xhtml
-
-int	get_next_line(int const fd, char **line)
-{
-	static char *stack[MAX_FD];
-	char *heap;
-	int ret;
-	int i;
-	if (!line || (fd < 0 || fd >= MAX_FD) || (read(fd, stack[fd], 0) < 0)
-		|| !(heap = (char *)malloc(sizeof(char) * BUFF_SIZE + 1)))
-		return (-1);
-	if (stack[fd])
-		if (gnl_verify_line(&stack[fd], line))
-			return (1);
-	i = 0;
-	while (i < BUFF_SIZE)
-		heap[i++] = '\0';
-	ret = gnl_read_file(fd, heap, &stack[fd], line);
-	free(heap);
-	if (ret != 0 || stack[fd] == NULL || stack[fd][0] == '\0')
-	{
-		if (!ret && *line)
-			*line = NULL;
-		return (ret);
-	}
-	*line = stack[fd];
-	stack[fd] = NULL;
-	return (1);
 }
