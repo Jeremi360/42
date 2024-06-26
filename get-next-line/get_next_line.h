@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:45:43 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/06/24 14:21:27 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/06/26 08:03:30 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// Macro for the buffer size, the max number of file descriptors available, and
-// to get the correct return value from the gnl_read_file() function.
-// Find the max number of files:
+// makro dla rozmiaru bufora, maksymalna liczba dostępnych deskryptorów plików i
+// Aby uzyskać prawidłową wartość zwracania z funkcji GNL_READ_FILE ().
+// Znajdź maksymalną liczbę plików:
 // Linux: ulimit -n
 
 # define BUFF_SIZE 8

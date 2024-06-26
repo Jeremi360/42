@@ -6,14 +6,11 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:13:17 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/06/24 14:23:26 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/06/26 08:02:35 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-// Allocates sufficient memory for a copy of the string s1, does the copy,
-// and returns a pointer to it.
 
 static char	*ft_strdup(const char *s1)
 {
@@ -22,19 +19,15 @@ static char	*ft_strdup(const char *s1)
 
 	i = 0;
 	while (s1[i])
-		i += 1;
+		i++;
 	if (!(s2 = (char *)malloc(sizeof(char) * (i + 1))))
 		return (NULL);
-	i = -1;
+	i--;
 	while (s1[++i])
 		s2[i] = s1[i];
 	s2[i] = '\0';
 	return (s2);
 }
-
-// Allocates with malloc() and returns a “fresh” string ending with ’\0’,
-// result of the concatenation of s1 and s2. If the allocation fails the
-// function returns NULL. 
 
 static char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -46,9 +39,9 @@ static char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	i = 0;
 	while (s1[i])
-		i += 1;
+		i++;
 	while (s2[j])
-		j += 1;
+		j++;
 	if (!s1 || !s2 || !(s3 = (char *)malloc(sizeof(char) * (i + j + 1))))
 		return (NULL);
 	tmp_s3 = s3;
@@ -60,10 +53,10 @@ static char	*ft_strjoin(char const *s1, char const *s2)
 	return (s3);
 }
 
-// Verify if whatever is in the stack, has a newline. If it doesn't, returns
-// a zero (0) to indicate that it's not valid. If there is a newline, we make a
-// copy of the stack into the line, and we copied whatever was in the stack
-// before, back to the stack (with the temporary stack that we created).
+// Sprawdź, czy cokolwiek jest w stosie, ma nową linię.Jeśli nie, zwraca
+// zero (0), aby wskazać, że jest to nieprawidłowe.Jeśli jest nowa linia, tworzymy
+// kopia stosu w linii i skopiowaliśmy wszystko, co było na stosie
+// Wcześniej, wróć do stosu (z tymczasowym stosem, który stworzyliśmy).
 
 static int	gnl_verify_line(char **stack, char **line)
 {
@@ -83,16 +76,16 @@ static int	gnl_verify_line(char **stack, char **line)
 	return (1);
 }
 
-// Reads into the heap, from the file descriptors, a specific number of bytes
-// defined by the BUFF_SIZE macro in the get_nex_line.h file. It's going to
-// continue the reading when the return value of the read function is greater
-// than zero (no errors, or if there is nothing else to read).
-// If there is something in the stack, we will concatenate whatever is in
-// there, with whatever is read in the heap. If no, we will just add
-// whatever is in the heap into the stack. Then we will verify the stack to
-// see if there is a newline. If there is, we will break from the while loop
-// and force the positive ret value into a one (1), using the RET_VALUE() macro.
-// This answer form SO helped me visualize the stack and heap in a better way:
+// odczytuje w stosie, z deskryptorów plików, określoną liczbę bajtów
+// zdefiniowane przez makro Buff_Size w pliku get_nex_line.h.Będzie
+// Kontynuuj odczyt, gdy wartość zwracania funkcji odczytu jest większa
+// niż zero (bez błędów lub jeśli nie ma nic więcej do odczytania).
+// Jeśli jest coś w stosie, będziemy się połączyć wszystko
+// tam, z tym, co jest odczytane na stosie.Jeśli nie, po prostu dodamy
+// Cokolwiek znajduje się na stosie.Następnie zweryfikujemy stos do
+// Sprawdź, czy istnieje nowa linia.Jeśli tak, zerwamy z pętli When
+// i wymuszaj dodatnią wartość RET do jednego (1) za pomocą makra ret_value ().
+// Ten formularz odpowiedzi pomógł mi w lepszym wizualizacji stosu i sterty:
 // http://stackoverflow.com/a/1213360
 
 static int	gnl_read_file(int fd, char *heap, char **stack, char **line)
