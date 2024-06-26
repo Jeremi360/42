@@ -6,29 +6,29 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:45:43 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/06/26 08:03:30 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/06/26 08:39:11 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
-// Needed for malloc(), free() and write().
-// Also for typedef size_t and sizeof()
-
+# include <fcntl.h>
+# include <limits.h>
+# include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 
-// makro dla rozmiaru bufora, maksymalna liczba dostępnych deskryptorów plików i
-// Aby uzyskać prawidłową wartość zwracania z funkcji GNL_READ_FILE ().
-// Znajdź maksymalną liczbę plików:
-// Linux: ulimit -n
+# define MAX_FD 1024
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-# define BUFF_SIZE 8
-# define MAX_FD 1024 + 1
-# define RET_VALUE(ret) ret > 0 ? 1 : ret
-
-// Prototype for the get_next_line() function.
-int	get_next_line(int const fd, char **line);
+char	*get_next_line(int fd);
+size_t	ft_strlen(char const *str);
+char	*ft_strchr(char const *str, int c);
+char	*ft_strcpy(char *dest, char const *src);
+char	*ft_strdup(char const *src);
+char	*ft_strjoin(char *buffer, const char *content);
 
 #endif
