@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:44:05 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/06/27 13:22:53 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/06/27 13:23:27 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,19 +111,19 @@ char	*get_next_line(int fd)
 	return (read_content);
 }
 
-int	main(void)
-{
-	int fd;
-	int lines_to_read;
-	int read_lines;
+// int	main(void)
+// {
+// 	int fd;
+// 	int lines_to_read;
+// 	int read_lines;
 
-	fd = open("lorem_ipsum.txt", O_RDONLY);
-	lines_to_read = 10;
-	read_lines = 0;
-	while (read_lines < lines_to_read)
-	{
-		printf("line %i: %s", read_lines, get_next_line(fd));
-		read_lines++;
-	}
-	return (0);
-}
+// 	fd = open("lorem_ipsum.txt", O_RDONLY);
+// 	lines_to_read = 10;
+// 	read_lines = 0;
+// 	while (read_lines < lines_to_read)
+// 	{
+// 		printf("line %i: %s", read_lines, get_next_line(fd));
+// 		read_lines++;
+// 	}
+// 	return (0);
+// }
