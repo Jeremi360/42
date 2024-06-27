@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 15:13:17 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/06/26 08:37:33 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/06/27 13:26:55 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,31 @@ size_t	ft_strlen(char const *str)
 	size_t	i;
 
 	i = 0;
-	while (*(str + i))
+	while (str[i])
 		i++;
 	return (i);
 }
 
 char	*ft_strchr(char const *str, int c)
 {
+	int		i;
+	char	t;
+	char	*temp;
+
 	if (!str)
 		return (NULL);
-	while (*str)
+	i = 0;
+	t = (char)c;
+	temp = (char *)str;
+	while (temp[i])
 	{
-		if (*str == (char)c)
-			return ((char *)str);
-		str++;
+		if (temp[i] == t)
+			return (temp + i);
+		i++;
 	}
-	if (*str == (char)c)
-		return ((char *)str);
-	else
-		return (NULL);
+	if (temp[i] == t)
+		return (temp + i);
+	return (NULL);
 }
 
 char	*ft_strcpy(char *dest, const char *src)
