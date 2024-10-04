@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_rotate_and_push.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 16:04:37 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/09 11:45:17 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:01:35 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:01:36 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

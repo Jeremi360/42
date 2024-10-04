@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 20:46:09 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 18:00:32 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:03:15 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:03:16 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_check(t_stack **a, t_stack **b, char *line)
 }
 
 // This function checks the validity of the commands and stack.
-// If it is valid, and the stack_a is sorted, the program prints "OK". 
+// If it is valid, and the stack_a is sorted, the program prints "OK".
 void	ft_checker_sub(t_stack **a, t_stack **b, char *line)
 {
 	char	*tmp;
@@ -81,7 +81,7 @@ int	main(int argc, char **argv)
 	a = ft_process(argc, argv);
 	if (!a || ft_checkdup(a))
 	{
-		ft_free (&a);
+		ft_free(&a);
 		ft_error_ch();
 	}
 	line = get_next_line(0);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   solver_utils_ab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 15:59:45 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/30 21:46:54 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:02:53 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:02:54 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// This function calculates how many times 
+// This function calculates how many times
 // we should rotate the stacks together.
 // Because after a certain amoun of rotate, we will
 // proceed only with one stack rotation.
@@ -29,7 +29,7 @@ int	ft_case_rarb(t_stack *a, t_stack *b, int c)
 // This function calculates how many times we should rotate the stacks together.
 // Because after a certain amoun of rotate, we will proceed only with one stack
 // rotation. Since here we have reverse rotate,rather than index number,
-// we check reverse index number which is 
+// we check reverse index number which is
 // calculated by list_size - index_number.
 int	ft_case_rrarrb(t_stack *a, t_stack *b, int c)
 {

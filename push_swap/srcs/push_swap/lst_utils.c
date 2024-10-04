@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/28 19:01:05 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 20:31:24 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:02:25 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:02:27 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_lstsize(t_stack *lst)
 // in the given stack.
 int	ft_min(t_stack *a)
 {
-	int		i;
+	int	i;
 
 	i = a->nbr;
 	while (a)
@@ -56,7 +56,7 @@ int	ft_min(t_stack *a)
 // in the given stack.
 int	ft_max(t_stack *a)
 {
-	int		i;
+	int	i;
 
 	i = a->nbr;
 	while (a)

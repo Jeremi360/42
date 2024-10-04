@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 10:29:05 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 12:02:55 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:01:58 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:02:00 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack	*ft_stack_new(int content)
 {
 	t_stack	*new;
 
-	new = malloc(sizeof (t_stack));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		ft_error();
 	new->nbr = content;

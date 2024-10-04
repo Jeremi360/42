@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 13:19:40 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/08 21:10:34 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:02:31 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:02:32 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_rrr(t_stack **a, t_stack **b, int j)
 	ft_rrr_sub(b, j);
 }
 
-// pb (push b) : take the first element at the top of a and put it 
+// pb (push b) : take the first element at the top of a and put it
 // at the top of b. Do nothing if a is empty.
 void	ft_pb(t_stack **stack_a, t_stack **stack_b, int j)
 {
@@ -98,7 +98,7 @@ void	ft_pb(t_stack **stack_a, t_stack **stack_b, int j)
 		write(1, "pb\n", 3);
 }
 
-// rrb (reverse rotate b) : shift down all elements of stack b by 1. 
+// rrb (reverse rotate b) : shift down all elements of stack b by 1.
 // The last element becomes the first one.
 void	ft_rrb(t_stack **b, int j)
 {

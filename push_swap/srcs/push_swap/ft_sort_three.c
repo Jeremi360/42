@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_three.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 15:10:59 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 16:20:09 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:01:50 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:01:51 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// This function sort the stack if there are only 
+// This function sort the stack if there are only
 // three elements in the stack.
 void	ft_sort_three(t_stack **stack_a)
 {

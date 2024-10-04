@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 12:20:01 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/03 20:55:02 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:00:54 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:00:56 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-//chec if the chracter is negative
+// chec if the chracter is negative
 int	sign(int c)
 {
 	if (c == '+' || c == '-')
@@ -20,7 +20,7 @@ int	sign(int c)
 	return (0);
 }
 
-//check if the character is digit
+// check if the character is digit
 int	digit(int c)
 {
 	if ((c >= 48) && (c <= 57))
@@ -28,7 +28,7 @@ int	digit(int c)
 	return (0);
 }
 
-//check if character is space character
+// check if character is space character
 int	space(int c)
 {
 	if (c == ' ')
@@ -36,7 +36,7 @@ int	space(int c)
 	return (0);
 }
 
-//function to check if given arguments is valid
+// function to check if given arguments is valid
 int	check_error(char **argv, int i, int j)
 {
 	while (argv[i])

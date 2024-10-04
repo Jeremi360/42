@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parse_args_quoted.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 12:29:31 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 17:33:42 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:01:20 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:01:22 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// This function free the string which is 
+// This function free the string which is
 // the integer values in between quotes.
 void	ft_freestr(char **lst)
 {

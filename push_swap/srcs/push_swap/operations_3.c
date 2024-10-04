@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   operations_3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 16:17:44 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 20:25:08 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:02:39 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:02:40 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// rb (rotate b) : shift up all elements of stack b by 1. 
+// rb (rotate b) : shift up all elements of stack b by 1.
 // The first element becomes the last one.
 void	ft_rb(t_stack **b, int j)
 {
@@ -29,7 +29,7 @@ void	ft_rb(t_stack **b, int j)
 		write(1, "rb\n", 3);
 }
 
-// sb (swap b) : swap the first 2 elements at the top of stack b. 
+// sb (swap b) : swap the first 2 elements at the top of stack b.
 // Do nothing if there is only one or no elements).
 void	ft_sb(t_stack **b, int j)
 {

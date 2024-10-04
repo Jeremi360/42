@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 13:16:13 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/01 20:31:05 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/04 13:02:04 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/04 13:02:06 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 // This function checks the index of a number
-// 	 in the stack.
+// 		in the stack.
 int	ft_find_index(t_stack *a, int nbr)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (a->nbr != nbr)
@@ -29,7 +29,7 @@ int	ft_find_index(t_stack *a, int nbr)
 }
 
 // This function finds the correct place of the number in stack_b.
-// In other words, it check what index number nbr_push will get 
+// In other words, it check what index number nbr_push will get
 // after it is being pushed to the stack_b.
 int	ft_find_place_b(t_stack *stack_b, int nbr_push)
 {
@@ -55,7 +55,7 @@ int	ft_find_place_b(t_stack *stack_b, int nbr_push)
 }
 
 // This function finds the correct place of the number in stack_a.
-// In other words, it check what index number nbr_push will get 
+// In other words, it check what index number nbr_push will get
 // after it is being pushed to the stack_a.
 int	ft_find_place_a(t_stack *stack_a, int nbr_push)
 {
