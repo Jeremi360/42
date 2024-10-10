@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 00:00:31 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/04 00:09:37 by yogun            ###   ########.fr       */
+/*   Updated: 2024/10/10 09:44:34 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,26 +68,23 @@ void	ft_putstr_fd(char *s, int fd)
 int	ft_atoi(const char *str)
 {
 	int	res;
-	int	isnegative;
+	int	negative;
 	int	i;
 
 	res = 0;
 	i = 0;
-	isnegative = 0;
-	while ((str[i] <= 13 && str[i] >= 9) || str[i] == 32)
+	negative = 1;
+	while ((str[i] <= '\r' && str[i] >= '\t') || str[i] == ' ')
 		i++;
 	if (str[i] == '-')
-		isnegative = 1;
+		negative = -1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res *= 10;
-		res += ((int)str[i] - 48);
+		res += (int)str[i] - '0';
 		i++;
 	}
-	if (isnegative)
-		return (-res);
-	else
-		return (res);
+	return (negative * res);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_wasd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:49:29 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/26 11:55:09 by yogun            ###   ########.fr       */
+/*   Updated: 2024/10/10 08:01:36 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_wkey(t_game *map)
 	i = 0;
 	while (map->mapall[i] != 'P')
 		i++;
-	if (map->mapall[i - x] == 'E' && map->max_score == map->score)
+	if (map->mapall[i - x] == 'E' && map->max_score == map-> score)
 	{
 		map->gameover++;
 		map->steps++;
@@ -53,7 +53,7 @@ void	ft_skey(t_game *map)
 	i = 0;
 	while (map->mapall[i] != 'P')
 		i++;
-	if (map->mapall[i + x] == 'E' && map->max_score == map->score)
+	if (map->mapall[i + x] == 'E' && map->max_score == map-> score)
 	{
 		map->gameover++;
 		map->steps++;

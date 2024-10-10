@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 00:44:06 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/05 00:26:39 by yogun            ###   ########.fr       */
+/*   Updated: 2024/10/10 09:20:38 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 */
 void	ft_exit_failure(void)
 {
-	ft_putstr_fd("Usage case: \"./client SERVER_PID MESSAGE\" \n", STDOUT_FILENO);
+	ft_putstr_fd("Usage case: \"./client SERVER_PID MESSAGE\" \n",
+		STDOUT_FILENO);
 	exit(EXIT_FAILURE);
 }
 
 /*
-	Function receives the signals from the server 
+	Function receives the signals from the server
 	every byte(SIGUSR2), and prints out the total
 	when it receives the NULL (SIGUSR1).
 */
@@ -41,11 +42,11 @@ void	action(int signal)
 }
 
 /*
-	Send the bits of each byte from right to 
+	Send the bits of each byte from right to
 	right to left, using str[j] >> i & 1
 	Once sent all  text, we send the "\0".
 	SIGUSR1 : 1, SIGUSR2 : 0
-	Bits are being sent from left to right. 
+	Bits are being sent from left to right.
 	This is why I shift bits to right direction.
 	after I send the first bit, I shift them right
 	and second bit become the first one.
@@ -53,8 +54,8 @@ void	action(int signal)
 */
 void	send_signal(pid_t pid, char *str)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	j = -1;
 	while (str[++j])
@@ -80,12 +81,12 @@ void	send_signal(pid_t pid, char *str)
 /*
 	1. We start, by checking the input arguments.
 	2. We calculate the length of the input string
-	 and print it : "Bytes sent ..."
+		and print it : "Bytes sent ..."
 	3. We activate the signal function on the client to receive
-	the end of each byte (SIGUSER1)
-	and/or nullterminated string (SIGUSER2)
+		the end of each byte (SIGUSER1)
+		and/or null terminated string (SIGUSER2)
 	4. We call the function send_signal to send each
-	 byte/char in bit
+		byte/char in bit
 */
 int	main(int argc, char *argv[])
 {
@@ -96,10 +97,10 @@ int	main(int argc, char *argv[])
 	str_len = ft_strlen(argv[2]);
 	if (!str_len || !ft_atoi(argv[1]))
 		ft_exit_failure();
-	ft_putstr_fd("Bytes sent        : ", STDOUT_FILENO);
+	ft_putstr_fd("Bytes sent : ", STDOUT_FILENO);
 	ft_putnbr_fd(str_len, STDOUT_FILENO);
 	ft_putchar_fd('\n', STDOUT_FILENO);
-	ft_putstr_fd("Bytes received    : ", STDOUT_FILENO);
+	ft_putstr_fd("Bytes received : ", STDOUT_FILENO);
 	signal(SIGUSR1, action);
 	signal(SIGUSR2, action);
 	send_signal(ft_atoi(argv[1]), argv[2]);

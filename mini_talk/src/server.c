@@ -3,29 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 00:43:56 by yogun             #+#    #+#             */
-/*   Updated: 2022/09/05 00:27:22 by yogun            ###   ########.fr       */
+/*   Created: 2024/10/10 09:25:46 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/10 09:26:20 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minitalk.h"
 #include <stdio.h>
 
-/*
-	Values are initialized
-*/
+//	Values are initialized
 void	var_init(t_message *var)
 {
 	var->char_value = 0;
 	var->bit_pos = 0;
 }
 
-/*	
-	Sigaction is more ortable. 
+/*
+	Sigaction is more ortable.
 	I use struct instead of global variable.
-	OR bitwise operator transfer the signal. 
+	OR bitwise operator transfer the signal.
 	Char bytes are filled from left to right. T
 	his is why we shift the bits to the left.
 	So, first I fill the last bit then 7th then 6th and so on.
@@ -39,27 +37,27 @@ void	action(int sig, siginfo_t *info, void *context)
 		var_init(&message);
 	if (info->si_pid)
 		message.pid = info->si_pid;
-	(message.char_value) = (message.char_value) | (sig == SIGUSR1);
-	if (++(message.bit_pos) == 8)
+	message.char_value = message.char_value | sig == SIGUSR1;
+	if (++message.bit_pos == 8)
 	{
-		if (!(message.char_value))
+		if (!message.char_value)
 		{
 			kill(message.pid, SIGUSR1);
 			return ;
 		}
-		ft_putchar_fd((message.char_value), 1);
+		ft_putchar_fd(message.char_value, 1);
 		kill(message.pid, SIGUSR2);
 		var_init(&message);
 	}
 	else
-		(message.char_value) = (message.char_value) << 1;
+		message.char_value = message.char_value << 1;
 }
 
 /*
-	If SA_SIGINFO is set and the signal is caught, 
+	If SA_SIGINFO is set and the signal is caught,
 	the signal-catching function shall be entered as:
 	void func(int signo, siginfo_t *info, void *context);
-	STDOUT_FILENO	1	 standard output file descriptor 
+	STDOUT_FILENO	1		standard output file descriptor
 */
 int	main(void)
 {

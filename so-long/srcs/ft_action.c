@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_action.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:14:47 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/27 14:35:26 by yogun            ###   ########.fr       */
+/*   Updated: 2024/10/10 08:03:57 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_action(t_game *map)
 {
 	map->mlx = mlx_init();
 	map->win = mlx_new_window(map->mlx,
-			100 * map->width, 100 * map->height, "SO_LONG by YOGUN");
+			100 * map->width, 100 * map->height, "SO_LONG by Jeremi");
 	ft_img_render(map);
 	ft_map_render(map, 0);
 	mlx_hook(map->win, 17, 0, ft_close, map);
