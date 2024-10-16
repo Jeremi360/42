@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+         #
+#    By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/02 00:49:05 by yogun             #+#    #+#              #
-#    Updated: 2022/09/05 01:25:32 by yogun            ###   ########.fr        #
+#    Created: 2024/10/16 13:28:04 by jbiernac          #+#    #+#              #
+#    Updated: 2024/10/16 13:37:35 by jbiernac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJS		=	$(CLIENT_OBJS) \
 
 # ------------------------------ Constant strings ------------------------------
 
-GCC			=	gcc
+GCC			=	clang
 
 FLAGS		=	-Wall -Wextra -Werror
 
