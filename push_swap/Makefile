@@ -6,7 +6,7 @@
 #    By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 17:33:18 by jbiernac          #+#    #+#              #
-#    Updated: 2024/10/16 17:33:19 by jbiernac         ###   ########.fr        #
+#    Updated: 2024/10/16 17:45:19 by jbiernac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,10 +51,7 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 $(LIBFT):
 		@make -C $(LIBFT_DIR)
 
-debug_mac: $(OBJ) $(LIBFT)
-		@gcc $(LFLAGS) $(HEAD) $(SRC) $(CFLAGS) -o "push_swap_debug"
-
-debug_linux:
+debug:
 		@gdd $(LFLAGS) $(HEAD) $(SRC) $(CFLAGS) -o "push_swap_debug"
 
 clean:
