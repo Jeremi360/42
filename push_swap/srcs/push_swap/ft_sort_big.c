@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:01:45 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/10/04 13:01:47 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:56:28 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_stack	*ft_sort_b(t_stack **stack_a)
 }
 
 // This function is pushing back the elements from stack_b
-// to stack_a until stack_b is empty. 
+// to stack_a until stack_b is empty.
 t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
@@ -88,12 +88,12 @@ t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 	return (stack_a);
 }
 
-// This function sorts the stack_a if there are more 
+// This function sorts the stack_a if there are more
 // than 2 elements in the stack_a.
 // And finally it makes final sort in stack_a after
 // all values pushed to stack_b, sorted and pushed
 // back to stack_a. Because, even the stack_a is
-// sorted at the end, the minimum number have to 
+// sorted at the end, the minimum number have to
 // at the top of the stack_a. So, it simply brings
 // the smallest number of the stack_a to the top.
 void	ft_sort(t_stack **stack_a)
@@ -118,6 +118,6 @@ void	ft_sort(t_stack **stack_a)
 		{
 			while ((*stack_a)->nbr != ft_min(*stack_a))
 				ft_rra(stack_a, 0);
-		}			
-	}	
+		}
+	}
 }
