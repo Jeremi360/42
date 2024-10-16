@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/02 00:44:06 by yogun             #+#    #+#             */
-/*   Updated: 2024/10/10 09:20:38 by jbiernac         ###   ########.fr       */
+/*   Created: 2024/10/14 12:50:24 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/14 12:50:25 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #include "../includes/minitalk.h"
 
