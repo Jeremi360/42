@@ -3,82 +3,70 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+         #
+#    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/23 13:48:18 by yogun             #+#    #+#              #
-#    Updated: 2024/10/04 14:36:43 by jbiernac         ###   ########.fr        #
+#    Created: 2021/05/19 21:21:36 by anolivei          #+#    #+#              #
+#    Updated: 2021/07/24 19:08:17 by anolivei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = gcc
-RM = rm -f
-FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = libft/
-OBJ_DIR = obj/
-BONUS = checker
-SRC_DIR = src/
+SRC_DIR = sources
+OBJ_DIR = .objs
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-SRC_MAIN = src/push_swap/push_swap.c \
+SRC =	$(SRC_DIR)/main.c \
+		$(SRC_DIR)/check_args.c \
+		$(SRC_DIR)/is_integer.c \
+		$(SRC_DIR)/ps_lst.c \
+		$(SRC_DIR)/quick_sort.c \
+		$(SRC_DIR)/ft_itob.c \
+		$(SRC_DIR)/pa.c \
+		$(SRC_DIR)/pb.c \
+		$(SRC_DIR)/sa.c \
+		$(SRC_DIR)/ra.c \
+		$(SRC_DIR)/rra.c \
+		$(SRC_DIR)/push_swap_short.c \
+		$(SRC_DIR)/push_swap_long.c \
+		$(SRC_DIR)/exit.c
 
-SRC_LIB =	src/push_swap/algorithm.c \
-		src/push_swap/ft_add_back.c \
-		src/push_swap/ft_stack_new.c \
-		src/push_swap/ft_check_utils.c \
-		src/push_swap/ft_parse.c \
-		src/push_swap/solver_utils_ab.c \
-		src/push_swap/solver_utils_ba.c \
-		src/push_swap/ft_rotate_and_push.c \
-		src/push_swap/operations.c \
-		src/push_swap/operations_LIB.c \
-		src/push_swap/operations_3.c \
-		src/push_swap/ft_check_dup.c \
-		src/push_swap/ft_check_sorted.c \
-		src/push_swap/ft_error_print.c \
-		src/push_swap/ft_free.c \
-		src/push_swap/lst_utils.c \
-		src/push_swap/lst_utils_LIB.c \
-		src/push_swap/ft_parse_args_quoted.c \
-		src/push_swap/ft_list_args.c \
-		src/push_swap/ft_check_args.c \
-		src/push_swap/ft_sort_big.c \
-		src/push_swap/ft_sort_three.c \
-		src/push_swap/ft_rotate_type.c \
-		
-BONUS_SRC = src/checker/checker.c \
-			src/checker/checker_utils.c \
-			
+OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))
 
-OBJ_MAIN = ${SRC_MAIN:.c=.o}
-OBJ_LIB = ${SRC_LIB:.c=.o}
+CC = clang
+HEAD = -I./includes -I./$(LIBFT_DIR)
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+LFLAGS = -L ./$(LIBFT_DIR) -lft
+RM = /bin/rm -rf
 
-BONUS_OBJ =${BONUS_SRC:.c=.o}
+all: $(NAME)
 
-INCLUDE = -L ./libft -lft
+$(NAME): $(OBJ) $(LIBFT)
+		@$(CC) $(OBJ) $(HEAD) $(CFLAGS) $(LFLAGS) -o $(NAME)
 
-.c.o:
-	${CC} -c $< -o ${<:.c=.o}
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+		@mkdir -p $(OBJ_DIR)
+		@$(CC) $(CFLAGS) $(HEAD) -c $< -o $@
 
-${NAME}: ${OBJ_MAIN} ${OBJ_LIB}
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${OBJ_MAIN} ${OBJ_LIB} -o ${NAME} ${INCLUDE}
+$(LIBFT):
+		@make -C $(LIBFT_DIR)
 
-${BONUS}: ${OBJ_LIB} ${BONUS_OBJ} 
-	make -C $(LIBFTDIR)
-	${CC} ${FLAGS} ${BONUS_OBJ} ${OBJ_LIB} -o ${BONUS} ${INCLUDE}
+debug_mac: $(OBJ) $(LIBFT)
+		@gcc $(LFLAGS) $(HEAD) $(SRC) $(CFLAGS) -o "push_swap_debug"
 
-all: ${NAME} ${BONUS}
-
-bonus: ${BONUS} 
+debug_linux:
+		@gdd $(LFLAGS) $(HEAD) $(SRC) $(CFLAGS) -o "push_swap_debug"
 
 clean:
-	${RM} ${OBJ_MAIN} ${OBJ_LIB} ${BONUS_OBJ} ${NAME} ${BONUS}
-	@cd $(LIBFTDIR) && $(MAKE) clean
+		@make clean -C $(LIBFT_DIR)
+		@$(RM) $(OBJ_DIR)
 
 fclean: clean
-	${RM} ${NAME}
-	@cd $(LIBFTDIR) && $(MAKE) fclean
+		@make fclean -C $(LIBFT_DIR)
+		@$(RM) $(NAME)
+		@$(RM) push_swap_debug
+		@$(RM) push_swap_debug.dSYM
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PONY: all clean fclean re
