@@ -6,20 +6,11 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:00:34 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/10/04 13:00:36 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:30:53 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-// function which checks the character if it is alphanumerical
-int	ft_isalpha(int c)
-{
-	if ((c >= 58 && c <= 126) || (c >= 33 && c <= 42) || (c == 44) || (c == 46)
-		|| (c == 47))
-		return (1);
-	return (0);
-}
 
 // Here arguments are send to make ASCII check
 // regarding the alphanumeric values

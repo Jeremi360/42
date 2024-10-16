@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:00:54 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/10/04 13:00:56 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:36:54 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@
 int	sign(int c)
 {
 	if (c == '+' || c == '-')
-		return (1);
-	return (0);
-}
-
-// check if the character is digit
-int	digit(int c)
-{
-	if ((c >= 48) && (c <= 57))
 		return (1);
 	return (0);
 }
@@ -47,15 +39,15 @@ int	check_error(char **argv, int i, int j)
 			if (sign(argv[i][j]))
 			{
 				j++;
-				if (!digit(argv[i][j]))
+				if (!ft_isdigit(argv[i][j]))
 					return (false);
 			}
-			else if (digit(argv[i][j]))
+			else if (ft_isdigit(argv[i][j]))
 			{
 				j++;
 				if (argv[i][j] == '\0')
 					break ;
-				if (!digit(argv[i][j]) && !space(argv[i][j]))
+				if (!ft_isdigit(argv[i][j]) && !space(argv[i][j]))
 					return (false);
 			}
 			j++;

@@ -6,18 +6,19 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:00:15 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/10/04 13:00:17 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:28:59 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+#include <limits.h>
 
 // This function does three things.
 // 1. It checks if the number of input is less than 2.
 // 2. It checks if the number of input is equal to 2.
 //    If it is, it means it is a quoted string.
 // 3. It checks if the number of input is greater than 2.
-//     If it is, it lists the arguements.
+// If it is, it lists the arguements.
 int	ft_atoi2(const char *str)
 {
 	int				mod;
@@ -25,8 +26,7 @@ int	ft_atoi2(const char *str)
 
 	i = 0;
 	mod = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
-		|| *str == '\v' || *str == '\r')
+	while (ft_strchr(" \t\n\f\v\r", *str))
 		str++;
 	if (*str == '-')
 	{
@@ -42,7 +42,7 @@ int	ft_atoi2(const char *str)
 		i = i * 10 + (*str - 48);
 		str++;
 	}
-	if ((mod * i) > 2147483647 || (mod * i) < -2147483648)
+	if ((mod * i) > UINT_MAX || (mod * i) < -UINT_MAX)
 		ft_error();
 	return (mod * i);
 }
@@ -77,7 +77,7 @@ t_stack	*ft_sub_process(char **argv)
 // 1. It checks if the number of input is less than 2.
 // 2. It checks if the number of input is equal to 2.
 //    If it is, it means it is a quoted string. Call
-//	  another function. <ft_sub_process>
+//		another function. <ft_sub_process>
 // 3. It checks if the number of input is greater than 2.
 //     If it is, it lists the arguements.
 t_stack	*ft_process(int argc, char **argv)
