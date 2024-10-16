@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itob.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/21 23:42:35 by anolivei          #+#    #+#             */
-/*   Updated: 2021/07/24 17:47:09 by anolivei         ###   ########.fr       */
+/*   Created: 2024/10/16 17:30:33 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/16 17:30:35 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

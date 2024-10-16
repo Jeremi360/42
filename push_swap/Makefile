@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/19 21:21:36 by anolivei          #+#    #+#              #
-#    Updated: 2021/07/24 19:08:17 by anolivei         ###   ########.fr        #
+#    Created: 2024/10/16 17:33:18 by jbiernac          #+#    #+#              #
+#    Updated: 2024/10/16 17:33:19 by jbiernac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

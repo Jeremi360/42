@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:27:22 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/10/16 17:27:24 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:35:29 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int					*quick_sort(int len, int *num);
 int					*get_index(int len, int *num, int *cpy);
 int					*link_index(int len, int *num);
 
-void				push_swap(t_all *all, int *index);
+void				push_swap(t_all *all);
 void				short_push_swap(t_all *all);
 void				long_push_swap(t_all *all);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 19:07:27 by anolivei          #+#    #+#             */
-/*   Updated: 2021/07/24 19:06:07 by anolivei         ###   ########.fr       */
+/*   Created: 2024/10/16 17:31:14 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/16 17:35:38 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv)
 	bin = string_bin(argc, index);
 	init_struct(&all, argc);
 	fill_stack_a(&all, bin, index);
-	push_swap(&all, index);
+	push_swap(&all);
 	freeing(&all, num, index, bin);
 	return (false);
 }
@@ -63,10 +63,10 @@ void	fill_stack_a(t_all *all, char **bin, int *index)
 	}
 }
 
-void	push_swap(t_all *all, int *index)
+void	push_swap(t_all *all)
 {
 	if (all->len <= 5)
-		short_push_swap(all, index);
+		short_push_swap(all);
 	else
 		long_push_swap(all);
 }

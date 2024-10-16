@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_integer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anolivei <anolivei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 15:07:54 by anolivei          #+#    #+#             */
-/*   Updated: 2021/07/16 00:46:00 by anolivei         ###   ########.fr       */
+/*   Created: 2024/10/16 17:30:54 by jbiernac          #+#    #+#             */
+/*   Updated: 2024/10/16 17:38:32 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
