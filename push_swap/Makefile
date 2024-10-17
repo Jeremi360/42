@@ -5,65 +5,79 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/16 17:33:18 by jbiernac          #+#    #+#              #
-#    Updated: 2024/10/16 17:45:19 by jbiernac         ###   ########.fr        #
+#    Created: 2024/10/17 16:50:39 by jbiernac          #+#    #+#              #
+#    Updated: 2024/10/17 16:50:40 by jbiernac         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
-SRC_DIR = sources
-OBJ_DIR = .objs
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
+# Standard
+NAME				= push_swap
 
-SRC =	$(SRC_DIR)/main.c \
-		$(SRC_DIR)/check_args.c \
-		$(SRC_DIR)/is_integer.c \
-		$(SRC_DIR)/ps_lst.c \
-		$(SRC_DIR)/quick_sort.c \
-		$(SRC_DIR)/ft_itob.c \
-		$(SRC_DIR)/pa.c \
-		$(SRC_DIR)/pb.c \
-		$(SRC_DIR)/sa.c \
-		$(SRC_DIR)/ra.c \
-		$(SRC_DIR)/rra.c \
-		$(SRC_DIR)/push_swap_short.c \
-		$(SRC_DIR)/push_swap_long.c \
-		$(SRC_DIR)/exit.c
+# Directories
+LIBFT				= ./libft/libft.a
+INC					= inc/
+SRC_DIR				= src/
+OBJ_DIR				= obj/
 
-OBJ = $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))
+# Compiler and CFlags
+CC					= cc
+CFLAGS				= -Wall -Werror -Wextra -I
+RM					= rm -f
 
-CC = clang
-HEAD = -I./includes -I./$(LIBFT_DIR)
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
-LFLAGS = -L ./$(LIBFT_DIR) -lft
-RM = /bin/rm -rf
+# Source Files
+COMMANDS_DIR		=	$(SRC_DIR)commands/push.c \
+						$(SRC_DIR)commands/rev_rotate.c \
+						$(SRC_DIR)commands/rotate.c \
+						$(SRC_DIR)commands/sort_stacks.c \
+						$(SRC_DIR)commands/sort_3.c \
+						$(SRC_DIR)commands/swap.c
 
-all: $(NAME)
+PUSH_SWAP_DIR		=	$(SRC_DIR)push_swap/handle_errors.c \
+						$(SRC_DIR)push_swap/init_a_to_b.c \
+						$(SRC_DIR)push_swap/init_b_to_a.c \
+						$(SRC_DIR)push_swap/push_swap.c \
+						$(SRC_DIR)push_swap/split2.c \
+						$(SRC_DIR)push_swap/stack_init.c \
+						$(SRC_DIR)push_swap/stack_utils.c
 
-$(NAME): $(OBJ) $(LIBFT)
-		@$(CC) $(OBJ) $(HEAD) $(CFLAGS) $(LFLAGS) -o $(NAME)
+# Concatenate all source files
+SRC 				= $(COMMANDS_DIR) $(PUSH_SWAP_DIR)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-		@mkdir -p $(OBJ_DIR)
-		@$(CC) $(CFLAGS) $(HEAD) -c $< -o $@
+# Apply the pattern substitution to each source file in SRC and produce a corresponding list of object files in the OBJ_DIR
+OBJ 				= $(patsubst $(SRC_DIR)%.c,$(OBJ_DIR)%.o,$(SRC))
+
+# Build rules
+start:				
+					@make all
 
 $(LIBFT):
-		@make -C $(LIBFT_DIR)
+					@echo "$(RED)[ .. ] Compiling Libft..$(RESET)"
+					@make -C ./libft
+					@echo "$(GREEN)[ OK ]$(RESET) $(YELLOW)Libft ready!$(RESET)"
 
-debug:
-		@gdd $(LFLAGS) $(HEAD) $(SRC) $(CFLAGS) -o "push_swap_debug"
+all: 				$(NAME)
+
+$(NAME): 			$(OBJ) $(LIBFT)
+					@echo "$(RED)[ .. ] Compiling Mandatory..$(RESET)"
+					@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -o $(NAME)
+					@echo "$(GREEN)[ OK ]$(RESET) $(YELLOW)Mandatory Ready!$(RESET)"
+
+# Compile object files from source files
+$(OBJ_DIR)%.o:		$(SRC_DIR)%.c 
+					@mkdir -p $(@D)
+					@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 clean:
-		@make clean -C $(LIBFT_DIR)
-		@$(RM) $(OBJ_DIR)
+					@$(RM) -r $(OBJ_DIR)
+					@make clean -C ./libft
+					@echo "Object files removed."
 
-fclean: clean
-		@make fclean -C $(LIBFT_DIR)
-		@$(RM) $(NAME)
-		@$(RM) push_swap_debug
-		@$(RM) push_swap_debug.dSYM
+fclean: 			clean
+					@$(RM) $(NAME)
+					@$(RM) $(LIBFT)
+					@echo "Binary files removed."
 
-re: fclean all
+re: 				fclean all
 
-.PONY: all clean fclean re
+# Phony targets represent actions not files
+.PHONY: 			start all clean fclean re
