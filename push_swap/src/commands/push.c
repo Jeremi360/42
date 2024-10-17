@@ -12,10 +12,9 @@
 
 #include "../../inc/push_swap.h"
 
-
 static void	push(t_stack_node **dst, t_stack_node **src)
 {
-	t_stack_node *push_node;
+	t_stack_node	*push_node;
 
 	if (!*src)
 		return ;
