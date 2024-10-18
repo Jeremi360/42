@@ -6,17 +6,12 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 12:50:24 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/10/14 12:50:25 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:48:01 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "../includes/minitalk.h"
 
-/*
-	Error handling
-*/
 void	ft_exit_failure(void)
 {
 	ft_putstr_fd("Usage case: \"./client SERVER_PID MESSAGE\" \n",

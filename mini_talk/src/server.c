@@ -6,7 +6,7 @@
 /*   By: jbiernac <jbiernac@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 09:25:46 by jbiernac          #+#    #+#             */
-/*   Updated: 2024/10/14 12:11:25 by jbiernac         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:46:56 by jbiernac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	action(int sig, siginfo_t *info, void *context)
 		var_init(&message);
 	if (info->si_pid)
 		message.pid = info->si_pid;
-	message.char_value = message.char_value | sig == SIGUSR1;
+	message.char_value = message.char_value | (sig == SIGUSR1);
 	if (++message.bit_pos == 8)
 	{
 		if (!message.char_value)
